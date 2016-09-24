@@ -33,12 +33,15 @@ global.scrollSpeed = 1; // change this to speed up and slowdown the game
 step = 0;
 randomize(); // improves the randomness of the level generation
 
-// Handling transitions
+// Handling transitions and setting backgrounds
 currentBiome = 0;
 transBackground = bg_trans_plain02_forest01;
 currentBackground = bg_biomeIdent0_start;
 activeTransition = false;
 transitionComplete = true;
+background_y[0] = 60;
+background_y[1] = 60;
+     
 
 // Game tweaking varialbe  
 screenWidth = 640;
@@ -93,7 +96,6 @@ if (global.biomeIdent != currentBiome)
 if (activeTransition == true) // rationalise
 {
     background_x[1] = screenWidth;
-    background_y[1] = 0; 
     background_index[1] = transBackground;  
     background_hspeed[1] = -global.scrollSpeed;
     background_hspeed[0] = -global.scrollSpeed;

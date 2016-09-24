@@ -22,6 +22,7 @@
         <sprite>sprites\spr_snow_simpletree</sprite>
         <sprite>sprites\spr_snow_clouds</sprite>
         <sprite>sprites\spr_snow_patch</sprite>
+        <sprite>sprites\spr_HUD</sprite>
       </sprites>
       <sprites name="Wagon_sprites">
         <sprite>sprites\spr_wagon_wheel</sprite>
@@ -94,6 +95,7 @@
         <object>objects\ob_wagon_wagon</object>
       </objects>
       <object>objects\ob_mainLevel_control</object>
+      <object>objects\ob_HUD</object>
     </objects>
   </objects>
   <rooms name="rooms">
