@@ -1,4 +1,4 @@
-switch(global.biomeIdent)
+switch(argument0)
 {
 case 1: // forest
 return bg_biomeIdent1_forest;

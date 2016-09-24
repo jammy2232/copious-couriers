@@ -6,6 +6,12 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprites name="TEMP - HOLD">
+      <sprite>sprites\spr_snow_simpletree</sprite>
+      <sprite>sprites\spr_snow_clouds</sprite>
+      <sprite>sprites\spr_snow_patch</sprite>
+      <sprite>sprites\spr_HUD</sprite>
+    </sprites>
     <sprites name="Encounters_sprites">
       <sprite>sprites\spr_encounter_highwayman</sprite>
     </sprites>
@@ -16,17 +22,20 @@
     </sprites>
     <sprites name="Mainlevel Sprites">
       <sprites name="Forest_sprites">
-        <sprite>sprites\spr_forest_simpletree</sprite>
+        <sprite>sprites\spr_forest_tree</sprite>
       </sprites>
-      <sprites name="TEMP - HOLD">
-        <sprite>sprites\spr_snow_simpletree</sprite>
-        <sprite>sprites\spr_snow_clouds</sprite>
-        <sprite>sprites\spr_snow_patch</sprite>
-        <sprite>sprites\spr_HUD</sprite>
+      <sprites name="Plains_sprites">
+        <sprite>sprites\spr_plains_grass</sprite>
+      </sprites>
+      <sprites name="Mountain_sprites">
+        <sprite>sprites\spr_mountain_rock</sprite>
       </sprites>
       <sprites name="Wagon_sprites">
         <sprite>sprites\spr_wagon_wheel</sprite>
         <sprite>sprites\spr_wagon_cart</sprite>
+      </sprites>
+      <sprites name="Desert_Sprites">
+        <sprite>sprites\spr_desert_cactus</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -69,25 +78,38 @@
     <scripts name="Mainlevel Scripts">
       <script>scripts\bgtransition.gml</script>
       <script>scripts\bgbiome.gml</script>
+      <script>scripts\object1.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
+    <objects name="TEMP _ HOLD">
+      <object>objects\ob_snow_simpletree</object>
+      <object>objects\ob_snow_clouds</object>
+      <object>objects\ob_snow_patch</object>
+      <objects name="Templates_objects">
+        <objects name="ob_Buttons">
+          <object>objects\ob_button_template</object>
+        </objects>
+      </objects>
+    </objects>
     <objects name="Encounters_objects">
       <object>objects\ob_encounter_highwayman</object>
     </objects>
-    <objects name="Templates_objects">
-      <objects name="ob_Buttons">
-        <object>objects\ob_button_template</object>
-      </objects>
-    </objects>
     <objects name="MainLevel_objects">
       <objects name="Forest_objects">
-        <object>objects\ob_forest_simpletree</object>
+        <object>objects\ob_forest_tree_1</object>
       </objects>
-      <objects name="TEMP _ HOLD">
-        <object>objects\ob_snow_simpletree</object>
-        <object>objects\ob_snow_clouds</object>
-        <object>objects\ob_snow_patch</object>
+      <objects name="Plains_objects">
+        <object>objects\ob_plains_grass_1</object>
+      </objects>
+      <objects name="Mountain_objects">
+        <object>objects\ob_mountain_rock_1</object>
+      </objects>
+      <objects name="Desert_objects">
+        <object>objects\ob_desert_cactus_1</object>
+      </objects>
+      <objects name="Templates">
+        <object>objects\ob_object_1</object>
       </objects>
       <objects name="Wagon_objects">
         <object>objects\ob_wagon_wheell_front</object>

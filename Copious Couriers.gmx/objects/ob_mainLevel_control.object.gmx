@@ -25,27 +25,40 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Biomes are represented by numbers
+            <string>// Global Varialbes used to control pace and identify current level Biomes
 global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
 global.scrollSpeed = 1; // change this to speed up and slowdown the game
 
-// Local Variables relating to Biomes
-step = 0;
+// Seeding the Random Generator
 randomize(); // improves the randomness of the level generation
 
-// Handling transitions and setting backgrounds
+// Local Variables relating to Biomes timing [DO NOT EDIT]
+step = 0;
+
+// Managing the background system with initial values [DO NOT EDIT]
 currentBiome = 0;
 transBackground = bg_trans_plain02_forest01;
 currentBackground = bg_biomeIdent0_start;
-activeTransition = false;
 transitionComplete = true;
 background_y[0] = 60;
 background_y[1] = 60;
      
-
-// Game tweaking varialbe  
+// Game tweaking values for visuals and gameplay of the main level
 screenWidth = 640;
 biomeScreens = 3; // Min is 3;
+transFactor = 2;
+roadMiddle_y = 310;
+grass_road_y = 290;
+grass_sky_y = 215;
+hudSize = 60;
+
+// Object placement frequencies - calculated as = step%object frequency
+ob1freq = 4;
+ob2freq = 8;
+ob3freq = 16;
+ob4freq = 32;
+
+// Future Features/ Ideas
 // biomeForceChange = false; // a flag to force a biome change (Future)
 
 // Local Varialbes relating to weather (Future)
@@ -81,50 +94,73 @@ if (global.biomeIdent == 0)
 // ******************************************************************************************************************************************************
 
 
-// Check for any transitions and take actionn ***********************************************************************************************************
+// Background Management ********************************************************************************************************************************
 if (global.biomeIdent != currentBiome)
 {
-    // Background transitions 
-    transBackground = bgtransition(currentBiome);
-    currentBackground = bgbiome()
+    // Background transitions - get the correct background
+    transBackground = bgtransition(currentBiome, global.biomeIdent);
+    currentBackground = bgbiome(global.biomeIdent)
     
-    // Activate the transition
-    activeTransition = true;    
-}
-
-// Start the transition
-if (activeTransition == true) // rationalise
-{
+    // setup and start the transition
     background_x[1] = screenWidth;
     background_index[1] = transBackground;  
     background_hspeed[1] = -global.scrollSpeed;
     background_hspeed[0] = -global.scrollSpeed;
     transitionComplete = false;
-    activeTransition = false;
 }
 
-// update to the new biome
+// update to the new biome once the transition is complete
 if(background_x[0] == -screenWidth) 
 {
      background_x[0] = screenWidth
      background_index[0] = currentBackground;
 }
 
+// Stop the transition
 if(background_x[1] == -screenWidth)
 {
     background_hspeed[1] = 0;
     background_hspeed[0] = 0;
     transitionComplete = true;
+    
+    
 }
 
 // ******************************************************************************************************************************************************
 
-// Normal Object Generation i.e. not transitions *********************************************************************************************************
-// if(transitionComplete != false &amp;&amp; activeTransition != true)
 
 
-// Identify the current biome
-currentBiome = global.biomeIdent;
+// Object Generation ************************************************************************************************************************************
+if(transitionComplete == false)
+{
+// Generate old and new objects at half rate 
+    
+    if(step mod (ob1freq/transFactor) == 1) // Main Object 1 - spawns between road and sky
+    {
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object1s
+        inst = instance_create(640, ySpawn, object1(global.biomeIdent));
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // Old object1s 
+        inst = instance_create(640, ySpawn, object1(currentBiome)); 
+    }
+
+}
+
+if(transitionComplete == true)
+{
+// Generate old and new objects at full
+
+    if(step mod ob1freq == 1) // Main Object 1 - spawns between road and sky
+    {
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
+        inst = instance_create(640, ySpawn, object1(global.biomeIdent));
+    }
+}
+
+// ******************************************************************************************************************************************************
+
+
+    // Identify the current biome
+    currentBiome = global.biomeIdent;
 
 // Counter increment
 step++;

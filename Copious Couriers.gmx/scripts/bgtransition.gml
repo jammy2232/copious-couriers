@@ -1,7 +1,7 @@
-switch(global.biomeIdent) // No need to include itself as the intial test is to check that
+switch(argument1) // No need to include itself as the intial test is to check that
 {
 case 1: // Trans to forest
-    switch(currentBiome)
+    switch(argument0)
     {
     
         case 0: case 2: // form a plain or start
@@ -20,7 +20,7 @@ case 1: // Trans to forest
 break;
 
 case 2: // trans to plain
-    switch(currentBiome)
+    switch(argument0)
     {   
         case 0: // form start
         return bg_biomeIdent2_plain;
@@ -42,7 +42,7 @@ case 2: // trans to plain
 break;
 
 case 3: // trans to mountain
-    switch(currentBiome)
+    switch(argument0)
     {   
     
         case 1: // form a forest
@@ -61,7 +61,7 @@ case 3: // trans to mountain
 break;
 
 case 4: // trans to desert
-    switch(currentBiome)
+    switch(argument0)
     {   
     
         case 1: // form a forest

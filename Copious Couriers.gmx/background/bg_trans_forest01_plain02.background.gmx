@@ -14,6 +14,6 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>640</width>
-  <height>480</height>
+  <height>360</height>
   <data>images\bg_trans_forest01_plain02.png</data>
 </background>
