@@ -26,9 +26,27 @@
           <argument>
             <kind>1</kind>
             <string>// Biomes are represented by numbers
-biomeIdent = 1; // 1 = Forest, 2 = Snow
-step = 6399;
+global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
+global.scrollSpeed = 1; // change this to speed up and slowdown the game
 
+// Local Variables relating to Biomes
+step = 0;
+randomize(); // improves the randomness of the level generation
+
+// Handling transitions
+currentBiome = 0;
+transBackground = bg_trans_plain02_forest01;
+currentBackground = bg_biomeIdent0_start;
+activeTransition = false;
+transitionComplete = true;
+
+// Game tweaking varialbe  
+screenWidth = 640;
+biomeScreens = 3; // Min is 3;
+// biomeForceChange = false; // a flag to force a biome change (Future)
+
+// Local Varialbes relating to weather (Future)
+// background_alpha[2] = 0;
 </string>
           </argument>
         </arguments>
@@ -51,11 +69,85 @@ step = 6399;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Counter
+            <string>// Start of the game use the start biome code ***********************************************************************************************************
+if (global.biomeIdent == 0)
+{
+    background_index[0] = currentBackground;
+    step = (biomeScreens-1)*screenWidth;
+}
+// ******************************************************************************************************************************************************
+
+
+// Check for any transitions and take actionn ***********************************************************************************************************
+if (global.biomeIdent != currentBiome)
+{
+    // Background transitions 
+    transBackground = bgtransition(currentBiome);
+    currentBackground = bgbiome()
+    
+    // Activate the transition
+    activeTransition = true;    
+}
+
+// Start the transition
+if (activeTransition == true) // rationalise
+{
+    background_x[1] = screenWidth;
+    background_y[1] = 0; 
+    background_index[1] = transBackground;  
+    background_hspeed[1] = -global.scrollSpeed;
+    background_hspeed[0] = -global.scrollSpeed;
+    transitionComplete = false;
+    activeTransition = false;
+}
+
+// update to the new biome
+if(background_x[0] == -screenWidth) 
+{
+     background_x[0] = screenWidth
+     background_index[0] = currentBackground;
+}
+
+if(background_x[1] == -screenWidth)
+{
+    background_hspeed[1] = 0;
+    background_hspeed[0] = 0;
+    transitionComplete = true;
+}
+
+// ******************************************************************************************************************************************************
+
+// Normal Object Generation i.e. not transitions *********************************************************************************************************
+// if(transitionComplete != false &amp;&amp; activeTransition != true)
+
+
+// Identify the current biome
+currentBiome = global.biomeIdent;
+
+// Counter increment
 step++;
 
-screenWidth = 640;
-biomeScreens = 10;
+// Reset Counter and change to the next biome
+if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChange == true) */ ) // Update the biome
+{
+    step = 0;
+    global.biomeIdent = irandom_range(1,4); // Random a Biome
+} 
+
+
+
+
+
+
+
+
+
+
+// TO DO ***********************************************************************************************************************************************
+
+
+/*
+
 
 // Forest 
 if(biomeIdent == 1)
@@ -163,19 +255,7 @@ if(biomeIdent == 2)
     
 }
 
-// Reset Counter
-if(step == biomeScreens*screenWidth) // 32 screens for a biome
-{
-    step = 0;
-    if(biomeIdent == 1)
-    {
-    biomeIdent = 2;
-    }
-    else
-    {
-    biomeIdent = 1;
-    }  // Random a Biome
-} 
+*/
 </string>
           </argument>
         </arguments>
@@ -193,7 +273,7 @@ if(step == biomeScreens*screenWidth) // 32 screens for a biome
         <functionname>action_draw_variable</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>-1</relative>
+        <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
@@ -202,11 +282,11 @@ if(step == biomeScreens*screenWidth) // 32 screens for a biome
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>100</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>100</string>
           </argument>
         </arguments>
       </action>
