@@ -39,6 +39,7 @@ step = 0;
 currentBiome = 0;
 transBackground = bg_trans_plain02_forest01;
 currentBackground = bg_biomeIdent0_start;
+previousBiome = 0;
 transitionComplete = true;
 background_y[0] = 60;
 background_y[1] = 60;
@@ -46,17 +47,27 @@ background_y[1] = 60;
 // Game tweaking values for visuals and gameplay of the main level
 screenWidth = 640;
 biomeScreens = 3; // Min is 3;
-transFactor = 2;
+transFactor = 4;
 roadMiddle_y = 310;
 grass_road_y = 290;
 grass_sky_y = 215;
 hudSize = 60;
 
 // Object placement frequencies - calculated as = step%object frequency
-ob1freq = 4;
+ob1freq = 8;
 ob2freq = 8;
 ob3freq = 16;
 ob4freq = 32;
+
+// Generate the Cart on the road *Need to sort out the placement variables to make this easier to read.*
+wagonWheel_1b = instance_create(65, roadMiddle_y+hudSize-16 , ob_wagon_wheel_back);
+wagonWheel_2b = instance_create(140, roadMiddle_y+hudSize-16, ob_wagon_wheel_back); 
+wagonWheel_3f = instance_create(45, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
+wagonWheel_3f = instance_create(120, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
+wagonWagon = instance_create(90, roadMiddle_y+hudSize-10, ob_wagon_wagon);  
+
+// Place the initial company headquarters *Need to sort out the placement variables to make this easier to read.*
+wagonWagon = instance_create(340, (grass_sky_y+100), ob_start_company); 
 
 // Future Features/ Ideas
 // biomeForceChange = false; // a flag to force a biome change (Future)
@@ -135,12 +146,12 @@ if(transitionComplete == false)
 {
 // Generate old and new objects at half rate 
     
-    if(step mod (ob1freq/transFactor) == 1) // Main Object 1 - spawns between road and sky
+    if(step mod (ob1freq*transFactor) == 0) // Main Object 1 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object1s
         inst = instance_create(640, ySpawn, object1(global.biomeIdent));
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // Old object1s 
-        inst = instance_create(640, ySpawn, object1(currentBiome)); 
+        inst = instance_create(640, ySpawn, object1(previousBiome)); 
     }
 
 }
@@ -149,7 +160,7 @@ if(transitionComplete == true)
 {
 // Generate old and new objects at full
 
-    if(step mod ob1freq == 1) // Main Object 1 - spawns between road and sky
+    if(step mod ob1freq == 0) // Main Object 1 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
         inst = instance_create(640, ySpawn, object1(global.biomeIdent));
@@ -159,8 +170,8 @@ if(transitionComplete == true)
 // ******************************************************************************************************************************************************
 
 
-    // Identify the current biome
-    currentBiome = global.biomeIdent;
+// Identify the current biome for background
+currentBiome = global.biomeIdent;
 
 // Counter increment
 step++;
@@ -169,6 +180,7 @@ step++;
 if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChange == true) */ ) // Update the biome
 {
     step = 0;
+    previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
 } 
 

@@ -37,6 +37,9 @@
       <sprites name="Desert_Sprites">
         <sprite>sprites\spr_desert_cactus</sprite>
       </sprites>
+      <sprites name="Start_sprites">
+        <sprite>sprites\spr_start_Company</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -112,9 +115,12 @@
         <object>objects\ob_object_1</object>
       </objects>
       <objects name="Wagon_objects">
-        <object>objects\ob_wagon_wheell_front</object>
+        <object>objects\ob_wagon_wheel_front</object>
         <object>objects\ob_wagon_wheel_back</object>
         <object>objects\ob_wagon_wagon</object>
+      </objects>
+      <objects name="Start_objects">
+        <object>objects\ob_start_company</object>
       </objects>
       <object>objects\ob_mainLevel_control</object>
       <object>objects\ob_HUD</object>
