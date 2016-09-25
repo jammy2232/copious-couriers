@@ -37,6 +37,7 @@ step = 0;
 
 // Managing the background system with initial values [DO NOT EDIT]
 currentBiome = 0;
+weather = -1;
 transBackground = bg_trans_plain02_forest01;
 currentBackground = bg_biomeIdent0_start;
 previousBiome = 0;
@@ -52,12 +53,13 @@ roadMiddle_y = 310;
 grass_road_y = 290;
 grass_sky_y = 215;
 hudSize = 60;
+weather = 0;
 
 // Object placement frequencies - calculated as = step%object frequency
 ob1freq = 8;
-ob2freq = 8;
-ob3freq = 16;
-ob4freq = 32;
+ob2freq = 32;
+// ob3freq = 16; [FUTURE]
+// ob4freq = 32;
 
 // Generate the Cart on the road *Need to sort out the placement variables to make this easier to read.*
 wagonWheel_1b = instance_create(65, roadMiddle_y+hudSize-16 , ob_wagon_wheel_back);
@@ -125,6 +127,7 @@ if(background_x[0] == -screenWidth)
 {
      background_x[0] = screenWidth
      background_index[0] = currentBackground;
+     transitionComplete = true;
 }
 
 // Stop the transition
@@ -132,13 +135,9 @@ if(background_x[1] == -screenWidth)
 {
     background_hspeed[1] = 0;
     background_hspeed[0] = 0;
-    transitionComplete = true;
-    
     
 }
-
 // ******************************************************************************************************************************************************
-
 
 
 // Object Generation ************************************************************************************************************************************
@@ -153,23 +152,56 @@ if(transitionComplete == false)
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // Old object1s 
         inst = instance_create(640, ySpawn, object1(previousBiome)); 
     }
+    
+        if(step mod (ob2freq*transFactor) == 0) // Main Object 2 - spawns between road and sky
+    {
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object2s
+        inst = instance_create(640, ySpawn, object2(global.biomeIdent));
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // Old object2s 
+        inst = instance_create(640, ySpawn, object2(previousBiome)); 
+    }
 
 }
 
 if(transitionComplete == true)
 {
-// Generate old and new objects at full
-
+// Generate new objects at full
     if(step mod ob1freq == 0) // Main Object 1 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
         inst = instance_create(640, ySpawn, object1(global.biomeIdent));
     }
+    
+    if(step mod ob2freq == 0) // Main Object 2 -  spawns between road and sky
+    {
+        ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
+        inst = instance_create(640, ySpawn, object2(global.biomeIdent));
+    }
 }
-
 // ******************************************************************************************************************************************************
 
 
+// Weather Generation ***********************************************************************************************************************************
+// [FUTURE}
+if(transitionComplete == true)
+{
+    switch(weather)
+    {
+        case 0:
+            effect_clear();
+            break;
+        case 1:
+            effect_create_above(ef_snow, 0, 0, 1, c_white);
+            break;
+        case 2:
+            effect_create_above(ef_rain, 0, 0, 1, c_gray);
+            break;
+    }
+}
+// ******************************************************************************************************************************************************
+
+
+// Loop End Logic ***************************************************************************************************************************************
 // Identify the current biome for background
 currentBiome = global.biomeIdent;
 
@@ -182,130 +214,10 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     step = 0;
     previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
+    weather = irandom_range(0,2); // Random weather
 } 
+// ******************************************************************************************************************************************************
 
-
-
-
-
-
-
-
-
-
-// TO DO ***********************************************************************************************************************************************
-
-
-/*
-
-
-// Forest 
-if(biomeIdent == 1)
-{
-
-    background_index[0] = bg_level_forest;
-    
-    if(step mod 4 == 1) // trees
-    {
-        yPosTrees = random_range(275, 340); 
-        inst = instance_create(672, yPosTrees, ob_forest_simpletree);
-    }
-}
-
-// Snow
-if(biomeIdent == 2)
-{    
-
-    //Transition in *************************************************************************
-    if (step &lt; 3*screenWidth)
-    {
-        if(step mod 3 == 1) // clouds
-        {
-            yPosClouds = random_range(0, 240); 
-            inst = instance_create(768, yPosClouds, ob_snow_clouds);
-        }
-        
-        if(step mod 4 == 1 &amp;&amp; step &lt;= 1*screenWidth) // previous trees
-        {
-        yPosTrees = random_range(275, 340); 
-        inst = instance_create(672, yPosTrees, ob_forest_simpletree);
-        }
-        
-        patchRate = 8; // Prepare to transstion
-        
-    }    
-    
-    if (step &gt;= 0.9*screenWidth &amp;&amp; step &lt; 3*screenWidth)
-    {
-        if(step mod 8 == 1) // trees
-        {
-            yPosTrees = random_range(275, 340); 
-            inst = instance_create(768, yPosTrees, ob_snow_simpletree);
-            yPosTrees = random_range(275, 340); 
-            inst = instance_create(672, yPosTrees, ob_forest_simpletree);
-        }
-        
-        if(step &gt;= 1*screenWidth &amp;&amp; step &lt; 1.5*screenWidth) {patchRate = 4;}
-        else {patchRate = 2;} 
-        
-        if(step mod patchRate == 1 ) // snowpatchs
-        {
-           yPosPatches = random_range(320, 480); 
-           inst = instance_create(768, yPosPatches, ob_snow_patch);
-        }
-        
-        if(patchRate&gt;4)
-        {
-            effect_create_above(ef_snow, 0, 0, 1, c_white);
-        }
-        
-    }
-    
-    //Main Body &amp; Transition out ************************************************************************
-    if(step &gt;= 3*screenWidth)
-    {
-        if(step&lt;3.5*screenWidth)
-        {
-            yPosPatches = random_range(320, 480); 
-            inst = instance_create(768, yPosPatches, ob_snow_patch);
-        }
-                
-        if(step&lt;4*screenWidth &amp;&amp; step mod 4 == 1 )
-        {
-            yPosPatches = random_range(320, 480); 
-            inst = instance_create(768, yPosPatches, ob_snow_patch);
-        }
-        
-        if(step&gt;4*screenWidth &amp;&amp; step mod 8 == 1 )
-        {
-            yPosPatches = random_range(320, 480); 
-            inst = instance_create(768, yPosPatches, ob_snow_patch);
-        }
-    
-        
-        if(step&gt;4*screenWidth &amp;&amp; step &lt; 8*screenWidth)
-        {
-            background_index[0] = bg_level_snow;
-        }
-            
-        effect_create_above(ef_snow, 0, 0, 1, c_white)
-
-        if(step mod 4 == 1 &amp;&amp; (biomeScreens-3)*screenWidth) // trees
-        {
-            yPosTrees = random_range(275, 340); 
-            inst = instance_create(672, yPosTrees, ob_snow_simpletree);
-        }
-    
-        if(step mod 3 == 1 &amp;&amp; (biomeScreens-2)*screenWidth) // tclouds
-        {
-            yPosClouds = random_range(0, 240); 
-            inst = instance_create(768, yPosClouds, ob_snow_clouds);
-        }
-    }
-    
-}
-
-*/
 </string>
           </argument>
         </arguments>
