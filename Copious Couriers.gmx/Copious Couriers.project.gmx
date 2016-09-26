@@ -75,6 +75,10 @@
         <background>background\bg_trans_plain02_desert04</background>
         <background>background\bg_trans_forest01_desert04</background>
       </backgrounds>
+      <backgrounds name="Weather - Generic">
+        <background>background\bg_weather_snow</background>
+        <background>background\bg_weather_rain</background>
+      </backgrounds>
       <backgrounds name="TEMP - HOLD">
         <background>background\bg_biomeIdent2_plain_snow</background>
       </backgrounds>

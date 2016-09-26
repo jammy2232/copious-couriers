@@ -25,27 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Global Varialbes used to control pace and identify current level Biomes
+            <string>// Global Varialbes used to control pace and identify current level Biomes [Info Only] 
 global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
 global.scrollSpeed = 1; // change this to speed up and slowdown the game
-
-// Seeding the Random Generator
-randomize(); // improves the randomness of the level generation
-
-// Local Variables relating to Biomes timing [DO NOT EDIT]
-step = 0;
-
-// Managing the background system with initial values [DO NOT EDIT]
-currentBiome = 0;
-weather = -1;
-transBackground = bg_trans_plain02_forest01;
-currentBackground = bg_biomeIdent0_start;
-previousBiome = 0;
-transitionComplete = true;
-background_y[0] = 60;
-background_y[1] = 60;
      
-// Game tweaking values for visuals and gameplay of the main level
+// Game tweaking values for visuals and gameplay of the main level ********************************************************************************
 screenWidth = 640;
 biomeScreens = 3; // Min is 3;
 transFactor = 4;
@@ -66,16 +50,46 @@ wagonWheel_1b = instance_create(65, roadMiddle_y+hudSize-16 , ob_wagon_wheel_bac
 wagonWheel_2b = instance_create(140, roadMiddle_y+hudSize-16, ob_wagon_wheel_back); 
 wagonWheel_3f = instance_create(45, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
 wagonWheel_3f = instance_create(120, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
-wagonWagon = instance_create(90, roadMiddle_y+hudSize-10, ob_wagon_wagon);  
+wagonWagon = instance_create(90, roadMiddle_y+hudSize-10, ob_wagon_wagon); 
 
 // Place the initial company headquarters *Need to sort out the placement variables to make this easier to read.*
 wagonWagon = instance_create(340, (grass_sky_y+100), ob_start_company); 
+// *****************************************************************************************************************************************************
+
+
+
+
+// [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
+
+// Seeding the Random Generator
+randomize(); // improves the randomness of the level generation
+
+// Local Variables relating to Biomes timing 
+step = 0;
+
+// Managing the background system with initial values [DO NOT EDIT]
+currentBiome = 0;
+transBackground = bg_trans_plain02_forest01;
+currentBackground = bg_biomeIdent0_start;
+previousBiome = 0;
+transitionComplete = true;
+transitionOngoing = true; // This variable name and true false order is terrible - NEEDS FIXED FOR CLARITY
+background_y[0] = 60;
+background_y[1] = 60;
+
+// Local Varialbes relating to weather
+background_alpha[2] = 0;
+bgWeatherFadeRate = 0.003;
+background_y[2] = 60;
+weather = -1;
+
+// [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
+
 
 // Future Features/ Ideas
 // biomeForceChange = false; // a flag to force a biome change (Future)
 
-// Local Varialbes relating to weather (Future)
-// background_alpha[2] = 0;
+
 </string>
           </argument>
         </arguments>
@@ -119,7 +133,8 @@ if (global.biomeIdent != currentBiome)
     background_index[1] = transBackground;  
     background_hspeed[1] = -global.scrollSpeed;
     background_hspeed[0] = -global.scrollSpeed;
-    transitionComplete = false;
+    transitionComplete = false;    
+    transitionOngoing = false;
 }
 
 // update to the new biome once the transition is complete
@@ -127,7 +142,7 @@ if(background_x[0] == -screenWidth)
 {
      background_x[0] = screenWidth
      background_index[0] = currentBackground;
-     transitionComplete = true;
+     transitionOngoing = true;
 }
 
 // Stop the transition
@@ -135,17 +150,18 @@ if(background_x[1] == -screenWidth)
 {
     background_hspeed[1] = 0;
     background_hspeed[0] = 0;
+    transitionComplete = true;
     
 }
 // ******************************************************************************************************************************************************
 
 
 // Object Generation ************************************************************************************************************************************
-if(transitionComplete == false)
+if(transitionOngoing == false)
 {
 // Generate old and new objects at half rate 
     
-    if(step mod (ob1freq*transFactor) == 0) // Main Object 1 - spawns between road and sky
+    if(step mod irandom_range(1,(ob1freq*transFactor)) == 0) // Main Object 1 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object1s
         inst = instance_create(640, ySpawn, object1(global.biomeIdent));
@@ -153,7 +169,7 @@ if(transitionComplete == false)
         inst = instance_create(640, ySpawn, object1(previousBiome)); 
     }
     
-        if(step mod (ob2freq*transFactor) == 0) // Main Object 2 - spawns between road and sky
+        if(step mod irandom_range(1,(ob2freq*transFactor)) == 0) // Main Object 2 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object2s
         inst = instance_create(640, ySpawn, object2(global.biomeIdent));
@@ -163,16 +179,16 @@ if(transitionComplete == false)
 
 }
 
-if(transitionComplete == true)
+if(transitionOngoing == true)
 {
 // Generate new objects at full
-    if(step mod ob1freq == 0) // Main Object 1 - spawns between road and sky
+    if(step mod irandom_range(1,ob1freq) == 0) // Main Object 1 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
         inst = instance_create(640, ySpawn, object1(global.biomeIdent));
     }
     
-    if(step mod ob2freq == 0) // Main Object 2 -  spawns between road and sky
+    if(step mod irandom_range(1,ob2freq) == 0) // Main Object 2 -  spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
         inst = instance_create(640, ySpawn, object2(global.biomeIdent));
@@ -183,20 +199,43 @@ if(transitionComplete == true)
 
 // Weather Generation ***********************************************************************************************************************************
 // [FUTURE}
-if(transitionComplete == true)
+switch(weather)
 {
-    switch(weather)
-    {
-        case 0:
-            effect_clear();
-            break;
-        case 1:
-            effect_create_above(ef_snow, 0, 0, 1, c_white);
-            break;
-        case 2:
-            effect_create_above(ef_rain, 0, 0, 1, c_gray);
-            break;
-    }
+    case 0: // Clear
+        if(transitionOngoing == true)
+        {
+            if( background_alpha[2] &gt; 0)
+            {
+            background_alpha[2] -= bgWeatherFadeRate;
+            }
+            // Call a Global to tell objects to fade out weather sprite
+        }
+        break;
+    case 1: // Snowing
+        effect_create_above(ef_snow, 0, 0, 1, c_white);
+        background_index[2] = bg_weather_snow; 
+        if(transitionOngoing == true)
+        {
+            if( background_alpha[2] &lt; 1)
+            {
+                background_alpha[2] += bgWeatherFadeRate;
+            }
+            // Call a Global to tell objects to fade in weather sprite
+        }
+
+        break;
+    case 2: // Raining
+        effect_create_above(ef_rain, 0, 0, 1, c_gray);
+        background_index[2] = bg_weather_rain; 
+        if(transitionOngoing == true)
+        {
+            if( background_alpha[2] &lt; 1)
+            {
+                background_alpha[2] += bgWeatherFadeRate;
+            }
+            // Call a Global to tell objects to fade in weather sprite
+        }
+        break;
 }
 // ******************************************************************************************************************************************************
 
@@ -214,7 +253,16 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     step = 0;
     previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
-    weather = irandom_range(0,2); // Random weather
+    
+    // Prevent transitions from weather to keep it simple
+    if(weather == 0 &amp;&amp; global.biomeIdent != 0)
+    {
+        weather = irandom_range(0,2); // Random weather
+    }
+    else
+    {
+        weather = 0;
+    }
 } 
 // ******************************************************************************************************************************************************
 
