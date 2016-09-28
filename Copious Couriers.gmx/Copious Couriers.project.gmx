@@ -9,15 +9,19 @@
     <sprites name="Mainlevel Sprites">
       <sprites name="Forest_sprites">
         <sprite>sprites\spr_forest_tree</sprite>
+        <sprite>sprites\spr_forest_tree_snow</sprite>
         <sprite>sprites\spr_forest_twig</sprite>
       </sprites>
       <sprites name="Plains_sprites">
         <sprite>sprites\spr_plains_grass</sprite>
+        <sprite>sprites\spr_plains_grass_snow</sprite>
         <sprite>sprites\spr_plains_flowers</sprite>
       </sprites>
       <sprites name="Mountain_sprites">
         <sprite>sprites\spr_mountain_rock</sprite>
+        <sprite>sprites\spr_mountain_rock_snow</sprite>
         <sprite>sprites\spr_mountain_moss</sprite>
+        <sprite>sprites\spr_mountains_moss_snow</sprite>
       </sprites>
       <sprites name="Wagon_sprites">
         <sprite>sprites\spr_wagon_wheel</sprite>
@@ -43,6 +47,10 @@
         <sprites name="Encounters_sprites">
           <sprite>sprites\spr_encounter_highwayman</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Background Sprites">
+        <sprite>sprites\spr_clouds</sprite>
+        <sprite>sprites\spr_mountain</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -95,33 +103,42 @@
   </scripts>
   <objects name="objects">
     <objects name="MainLevel_objects">
-      <objects name="Forest_objects">
-        <object>objects\ob_forest_1</object>
-        <object>objects\ob_forest_2</object>
-      </objects>
-      <objects name="Plains_objects">
-        <object>objects\ob_plains_1</object>
-        <object>objects\ob_plains_2</object>
-      </objects>
-      <objects name="Mountain_objects">
-        <object>objects\ob_mountain_1</object>
-        <object>objects\ob_mountain_2</object>
+      <objects name="Background objects">
+        <object>objects\ob_clouds</object>
       </objects>
       <objects name="Desert_objects">
         <object>objects\ob_desert_1</object>
         <object>objects\ob_desert_2</object>
       </objects>
+      <objects name="Forest_objects">
+        <object>objects\ob_forest_1</object>
+        <object>objects\ob_forest_1_snow</object>
+        <object>objects\ob_forest_2</object>
+      </objects>
+      <objects name="Mountain_objects">
+        <object>objects\ob_mountain_1_snow</object>
+        <object>objects\ob_mountain_1</object>
+        <object>objects\ob_mountain_2_snow</object>
+        <object>objects\ob_mountain_2</object>
+        <object>objects\ob_bg_mountain</object>
+      </objects>
+      <objects name="Plains_objects">
+        <object>objects\ob_plains_1</object>
+        <object>objects\ob_plains_1_snow</object>
+        <object>objects\ob_plains_2</object>
+      </objects>
+      <objects name="Start_objects">
+        <object>objects\ob_start_company</object>
+      </objects>
       <objects name="Templates">
         <object>objects\ob_object_1</object>
         <object>objects\ob_object_2</object>
+        <object>objects\ob_object_snow</object>
       </objects>
       <objects name="Wagon_objects">
         <object>objects\ob_wagon_wheel_front</object>
         <object>objects\ob_wagon_wheel_back</object>
         <object>objects\ob_wagon_wagon</object>
-      </objects>
-      <objects name="Start_objects">
-        <object>objects\ob_start_company</object>
       </objects>
       <object>objects\ob_mainLevel_control</object>
       <object>objects\ob_HUD</object>

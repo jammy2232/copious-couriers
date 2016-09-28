@@ -35,7 +35,7 @@ biomeScreens = 3; // Min is 3;
 transFactor = 4;
 roadMiddle_y = 310;
 grass_road_y = 290;
-grass_sky_y = 215;
+grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
 
@@ -81,7 +81,9 @@ background_y[1] = 60;
 background_alpha[2] = 0;
 bgWeatherFadeRate = 0.003;
 background_y[2] = 60;
-weather = -1;
+global.weather = -1;
+global.snowAmount = 0;
+global.mountain = biomeScreens;
 
 // [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
 
@@ -194,46 +196,54 @@ if(transitionOngoing == true)
         inst = instance_create(640, ySpawn, object2(global.biomeIdent));
     }
 }
+
+
 // ******************************************************************************************************************************************************
 
 
 // Weather Generation ***********************************************************************************************************************************
-// [FUTURE}
-switch(weather)
+switch(global.weather)
 {
     case 0: // Clear
         if(transitionOngoing == true)
         {
-            if( background_alpha[2] &gt; 0)
+            if( background_alpha[2] &gt; 0+bgWeatherFadeRate)
             {
             background_alpha[2] -= bgWeatherFadeRate;
+            if(global.snowAmount &gt; 0+bgWeatherFadeRate)
+            {
+                global.snowAmount -=  bgWeatherFadeRate;
             }
-            // Call a Global to tell objects to fade out weather sprite
+            }
         }
         break;
+        
     case 1: // Snowing
         effect_create_above(ef_snow, 0, 0, 1, c_white);
         background_index[2] = bg_weather_snow; 
         if(transitionOngoing == true)
         {
-            if( background_alpha[2] &lt; 1)
+            if( background_alpha[2] &lt; 1 - bgWeatherFadeRate)
             {
                 background_alpha[2] += bgWeatherFadeRate;
+                if (global.snowAmount &lt; 1- bgWeatherFadeRate)
+                {
+                    global.snowAmount +=  bgWeatherFadeRate;
+                }
             }
-            // Call a Global to tell objects to fade in weather sprite
         }
 
         break;
+        
     case 2: // Raining
         effect_create_above(ef_rain, 0, 0, 1, c_gray);
         background_index[2] = bg_weather_rain; 
         if(transitionOngoing == true)
         {
-            if( background_alpha[2] &lt; 1)
+            if( background_alpha[2] &lt; 1-bgWeatherFadeRate)
             {
                 background_alpha[2] += bgWeatherFadeRate;
             }
-            // Call a Global to tell objects to fade in weather sprite
         }
         break;
 }
@@ -254,15 +264,25 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
     
-    // Prevent transitions from weather to keep it simple
-    if(weather == 0 &amp;&amp; global.biomeIdent != 0)
+    if (global.biomeIdent == 3)
     {
-        weather = irandom_range(0,2); // Random weather
+    inst = instance_create(640, grass_sky_y+hudSize, ob_bg_mountain);
+    }
+    
+    // Prevent transitions from weather to keep it simple
+    if(global.weather == 0 &amp;&amp; global.biomeIdent != 0 &amp;&amp; global.biomeIdent != 4)
+    {
+        global.weather = irandom_range(0,2); // Random weather
+        if(global.weather == 1 || global.weather == 2)
+        {
+        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds);
+        }
     }
     else
     {
-        weather = 0;
+        global.weather = 0;
     }
+    
 } 
 // ******************************************************************************************************************************************************
 
