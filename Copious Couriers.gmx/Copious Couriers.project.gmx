@@ -46,6 +46,8 @@
         </sprites>
         <sprites name="Encounters_sprites">
           <sprite>sprites\spr_encounter_highwayman</sprite>
+          <sprite>sprites\placeholder_encounter_1</sprite>
+          <sprite>sprites\placeholder_encounter_2</sprite>
         </sprites>
       </sprites>
       <sprites name="Background Sprites">
@@ -99,6 +101,9 @@
       <script>scripts\bgbiome.gml</script>
       <script>scripts\object1.gml</script>
       <script>scripts\object2.gml</script>
+    </scripts>
+    <scripts name="event_creation">
+      <script>scripts\objectSelectorScript.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -154,9 +159,15 @@
       </objects>
       <objects name="Encounters_objects">
         <object>objects\ob_encounter_highwayman</object>
+        <object>objects\encounter_1</object>
+        <object>objects\encounter_2</object>
       </objects>
+      <object>objects\event_spawn</object>
     </objects>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\event_timeline</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_main_level</room>
   </rooms>
