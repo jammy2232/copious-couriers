@@ -71,7 +71,7 @@
         <sprite>sprites\spr_Chips</sprite>
       </sprites>
       <sprites name="Methods">
-        <sprite>sprites\spr_crush</sprite>
+        <sprite>sprites\spr_Crush</sprite>
         <sprite>sprites\spr_Boil</sprite>
       </sprites>
     </sprites>
@@ -124,6 +124,8 @@
       <script>scripts\bgbiome.gml</script>
       <script>scripts\object1.gml</script>
       <script>scripts\object2.gml</script>
+      <script>scripts\healthmg.gml</script>
+      <script>scripts\healthmg2.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -168,6 +170,33 @@
       <object>objects\ob_mainLevel_control</object>
       <object>objects\ob_HUD</object>
     </objects>
+    <objects name="Healthmg_objects">
+      <object>objects\ob_container</object>
+      <object>objects\ob_potion</object>
+      <object>objects\ob_potion_result</object>
+      <objects name="Up Arrow">
+        <object>objects\ob_top_up</object>
+        <object>objects\ob_mid_up</object>
+        <object>objects\ob_bot_up</object>
+        <object>objects\ob_selection_up</object>
+      </objects>
+      <objects name="Down Arrow">
+        <object>objects\ob_selection_down</object>
+        <object>objects\ob_top_down</object>
+        <object>objects\ob_mid_down</object>
+        <object>objects\ob_bot_down</object>
+      </objects>
+      <objects name="Ingredients">
+        <object>objects\ob_ingredient_bot</object>
+        <object>objects\ob_ingredient_mid</object>
+        <object>objects\ob_ingredient_top</object>
+      </objects>
+      <objects name="Method">
+        <object>objects\ob_method_selector_top</object>
+        <object>objects\ob_method_selector_mid</object>
+        <object>objects\ob_method_selector_bot</object>
+      </objects>
+    </objects>
     <objects name="TEMP _ HOLD">
       <object>objects\ob_snow_simpletree</object>
       <object>objects\ob_snow_clouds</object>
@@ -179,18 +208,6 @@
       </objects>
       <objects name="Encounters_objects">
         <object>objects\ob_encounter_highwayman</object>
-      </objects>
-    </objects>
-    <objects name="Healthmg_objects">
-      <object>objects\ob_container</object>
-      <object>objects\ob_potion</object>
-      <object>objects\Ingredient</object>
-      <object>objects\ob_potion_result</object>
-      <objects name="Up Arrow">
-        <object>objects\ob_top_up</object>
-        <object>objects\ob_mid_up</object>
-        <object>objects\ob_bot_up</object>
-        <object>objects\ob_selection_up</object>
       </objects>
     </objects>
   </objects>
