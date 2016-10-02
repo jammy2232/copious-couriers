@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x =  x - global.scrollSpeed/(global.mountain-1);
+            <string>x =  x - global.scrollSpeed/(global.mountain);
 if(x==-sprite_width) {instance_destroy();}
 </string>
           </argument>
