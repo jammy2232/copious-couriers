@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spriteNo = healthmg2(irandom_range(0,1));
+            <string>spriteNo = healthmg2(irandom_range(1,2));
 sprite_index = spriteNo;
 </string>
           </argument>

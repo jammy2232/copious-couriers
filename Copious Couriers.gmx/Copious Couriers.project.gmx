@@ -60,6 +60,7 @@
         <sprite>sprites\spr_potion_bottle</sprite>
         <sprite>sprites\spr_up_arrow</sprite>
         <sprite>sprites\spr_down_arrow</sprite>
+        <sprite>sprites\spr_confirm_button</sprite>
       </sprites>
       <sprites name="Ingredients">
         <sprite>sprites\spr_Sword</sprite>
@@ -124,10 +125,13 @@
       <script>scripts\bgbiome.gml</script>
       <script>scripts\object1.gml</script>
       <script>scripts\object2.gml</script>
+    </scripts>
+    <scripts name="Healthmg Scripts">
       <script>scripts\healthmg.gml</script>
       <script>scripts\healthmg2.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts"/>
   <objects name="objects">
     <objects name="MainLevel_objects">
       <objects name="Background objects">
@@ -174,6 +178,8 @@
       <object>objects\ob_container</object>
       <object>objects\ob_potion</object>
       <object>objects\ob_potion_result</object>
+      <object>objects\ob_confirm_button</object>
+      <object>objects\ob_clue_result</object>
       <objects name="Up Arrow">
         <object>objects\ob_top_up</object>
         <object>objects\ob_mid_up</object>

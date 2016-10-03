@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>image_blend = make_colour_hsv(0, 0, 0); // make the potion invisible
+</string>
           </argument>
         </arguments>
       </action>
@@ -47,7 +48,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>red = ob_ingredient_bot.spriteNo * ob_method_selector_top.spriteNo * 255 / 14;
+blue = ob_ingredient_mid.spriteNo * ob_method_selector_mid.spriteNo * 255 / 14;
+green = ob_ingredient_top.spriteNo * ob_method_selector_top.spriteNo * 255 / 14;
+
+image_blend = make_colour_hsv(red, blue, green);
+
+</string>
           </argument>
         </arguments>
       </action>

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spriteNo = irandom_range(0, 6);
+            <string>spriteNo = irandom_range(1, 7);
 </string>
           </argument>
         </arguments>
@@ -48,14 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (spriteNo == 7)
+            <string>if (spriteNo == 8)
 {
-spriteNo = 0;
+spriteNo = 1;
 }
 
-if (spriteNo == -1)
+if (spriteNo == 0)
 {
-spriteNo = 6;
+spriteNo = 7;
 }
 
 sprite_index = healthmg(spriteNo);
