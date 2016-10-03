@@ -25,32 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>red = irandom_range(1,7) * irandom_range(1,2) * 255 / 14;
-blue = irandom_range(1,7) * irandom_range(1,2) * 255 / 14;
-green = irandom_range(1,7) * irandom_range(1,2) * 255 / 14;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_blend = make_colour_hsv(red, blue, green);
+            <string>maxCombo = ob_healthgame.maxIngredients * ob_healthgame.maxMethods;
+red = irandom_range(1,ob_healthgame.maxIngredients) * ob_method_selector_top.methodNo * 255 / maxCombo;
+blue = irandom_range(1,ob_healthgame.maxIngredients) * ob_method_selector_mid.methodNo * 255 / maxCombo;
+green = irandom_range(1,ob_healthgame.maxIngredients) * ob_method_selector_bot.methodNo * 255 / maxCombo;
+image_blend = make_color_rgb(red, green, blue);
 
 </string>
           </argument>

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_blend = make_colour_hsv(0, 0, 0); // make the potion invisible
+            <string>image_blend = make_colour_rgb(0, 0, 0); // make the potion invisible
+maxCombo = ob_healthgame.maxIngredients * ob_healthgame.maxMethods;
 </string>
           </argument>
         </arguments>
@@ -48,11 +49,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>red = ob_ingredient_bot.spriteNo * ob_method_selector_top.spriteNo * 255 / 14;
-blue = ob_ingredient_mid.spriteNo * ob_method_selector_mid.spriteNo * 255 / 14;
-green = ob_ingredient_top.spriteNo * ob_method_selector_top.spriteNo * 255 / 14;
-
-image_blend = make_colour_hsv(red, blue, green);
+            <string>red = ob_ingredient_top.ingredientNo * ob_method_selector_top.methodNo * 255 / maxCombo;
+blue = ob_ingredient_mid.ingredientNo * ob_method_selector_mid.methodNo * 255 / maxCombo;
+green = ob_ingredient_bot.ingredientNo * ob_method_selector_bot.methodNo * 255 / maxCombo;
+image_blend = make_color_rgb(red, green, blue);
 
 </string>
           </argument>

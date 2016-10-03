@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spriteNo = irandom_range(1, 7);
+            <string>ingredientNo = irandom_range(1, ob_healthgame.maxIngredients);
 </string>
           </argument>
         </arguments>
@@ -48,17 +48,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (spriteNo == 8)
+            <string>if (ingredientNo == ob_healthgame.maxIngredients+1)
 {
-spriteNo = 1;
+ingredientNo = 1;
 }
 
-if (spriteNo == 0)
+if (ingredientNo == 0)
 {
-spriteNo = 7;
+ingredientNo = ob_healthgame.maxIngredients;
 }
 
-sprite_index = healthmg(spriteNo);
+sprite_index = healthmg(ingredientNo);
 </string>
           </argument>
         </arguments>

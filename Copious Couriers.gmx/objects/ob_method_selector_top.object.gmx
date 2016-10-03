@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spriteNo = healthmg2(irandom_range(1,2));
-sprite_index = spriteNo;
+            <string>methodNo = healthmg2(irandom_range(1,ob_healthgame.maxMethods));
+sprite_index = methodNo;
 </string>
           </argument>
         </arguments>
