@@ -4,7 +4,13 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="MountainMinigame">
+      <sound>sound\snd_boulderBounce</sound>
+      <sound>sound\snd_rumble</sound>
+      <sound>sound\snd_splat</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Mainlevel Sprites">
       <sprites name="Forest_sprites">
@@ -53,6 +59,10 @@
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
     </sprites>
+    <sprites name="MountainMinigame_sprites">
+      <sprite>sprites\spr_boulder</sprite>
+      <sprite>sprites\spr_deadWagon</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -90,6 +100,9 @@
       <backgrounds name="TEMP - HOLD">
         <background>background\bg_biomeIdent2_plain_snow</background>
       </backgrounds>
+    </backgrounds>
+    <backgrounds name="MountainMinigame Backgrounds">
+      <background>background\bg_mountainmini</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -156,9 +169,19 @@
         <object>objects\ob_encounter_highwayman</object>
       </objects>
     </objects>
+    <objects name="MountainMinigame_objects">
+      <objects name="MountainWagon">
+        <object>objects\ob_mwagon</object>
+        <object>objects\ob_mwheelf</object>
+        <object>objects\ob_mwheelb</object>
+        <object>objects\ob_mdeadWagon</object>
+      </objects>
+      <object>objects\ob_boulder</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_level</room>
+    <room>rooms\rm_mountain_minigame</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
