@@ -53,6 +53,10 @@
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
     </sprites>
+    <sprites name="Shop_Sprites">
+      <sprite>sprites\spr_shop_main</sprite>
+      <sprite>sprites\spr_shop_button</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -101,6 +105,9 @@
       <script>scripts\object2.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_shop</font>
+  </fonts>
   <objects name="objects">
     <objects name="MainLevel_objects">
       <objects name="Background objects">
@@ -155,6 +162,10 @@
       <objects name="Encounters_objects">
         <object>objects\ob_encounter_highwayman</object>
       </objects>
+    </objects>
+    <objects name="Shop_Objects">
+      <object>objects\obj_shop_main</object>
+      <object>objects\obj_shop_button</object>
     </objects>
   </objects>
   <rooms name="rooms">
