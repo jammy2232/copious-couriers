@@ -7,7 +7,103 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>randomize();
+for (i = 0; i &lt; 5; i++)
+{
+    item = random_range(0,9);
+    shop_pool[i,0] = global.item_pool[item,0];
+    shop_pool[i,1] = global.item_pool[item,1];
+    shop_pool[i,2] = global.item_pool[item,2];
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (distance_to_point(mouse_x,mouse_y)&lt;=0 &amp;&amp; mouse_check_button(mb_left))
+{
+    self.visible = false;
+}
+else
+{
+    self.visible=true;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+
+
+draw_set_color(make_color_rgb(0,246,58));
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_font(fnt_shop);
+draw_text_transformed(x-90,y,shop_pool[0,0],0.8,0.8,0);
+draw_set_color(make_color_rgb(255,216,48));
+draw_set_halign(fa_left);
+draw_text_transformed(x-45,y,shop_pool[0,1],1.2,1.2,0);
+draw_set_halign(fa_center);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

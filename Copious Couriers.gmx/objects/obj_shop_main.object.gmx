@@ -65,6 +65,18 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(fnt_shop);
 draw_text_transformed(x,y-106,"I have many wares for sale#Please have a look",1,1,0);
+
+draw_set_color(make_color_rgb(255,216,48));
+draw_text_transformed(x-62,y+105,"Gold:",1.2,1.2,0);
+draw_set_halign(fa_left);
+draw_text_transformed(x-38,y+105,global.gold,1.2,1.2,0);
+draw_set_halign(fa_center);
+
+draw_set_color(make_color_rgb(228,0,4));
+draw_text_transformed(x+34,y+105,"Health:",1.2,1.2,0);
+draw_set_halign(fa_left);
+draw_text_transformed(x+65,y+105,global.p_health,1.2,1.2,0);
+draw_set_halign(fa_center);
 </string>
           </argument>
         </arguments>
