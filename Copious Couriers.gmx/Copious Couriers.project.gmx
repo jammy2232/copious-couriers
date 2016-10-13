@@ -53,6 +53,9 @@
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
     </sprites>
+    <sprites name="Start Menu">
+      <sprite>sprites\Button</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -91,6 +94,9 @@
         <background>background\bg_biomeIdent2_plain_snow</background>
       </backgrounds>
     </backgrounds>
+    <backgrounds name="Startpage Backgrounds">
+      <background>background\bg_start</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -101,6 +107,9 @@
       <script>scripts\object2.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_startmenu</font>
+  </fonts>
   <objects name="objects">
     <objects name="MainLevel_objects">
       <objects name="Background objects">
@@ -156,8 +165,15 @@
         <object>objects\ob_encounter_highwayman</object>
       </objects>
     </objects>
+    <objects name="Startmenu Objects">
+      <object>objects\ob_parbutton</object>
+      <object>objects\ob_endbutton</object>
+      <object>objects\ob_startbuttom</object>
+    </objects>
+    <object>objects\ob_quitmenu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_startmenu</room>
     <room>rooms\rm_main_level</room>
   </rooms>
   <help>
