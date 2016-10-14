@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (x &gt; -40 &amp;&amp; biome == global.biomeIdent)
+            <string>if (x &gt; - 50 &amp;&amp; biome == global.biomeIdent)
 {
 x = x - 4*global.scrollSpeed;
 }

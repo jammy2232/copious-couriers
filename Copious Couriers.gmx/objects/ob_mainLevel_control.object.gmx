@@ -275,7 +275,7 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
         global.weather = irandom_range(0,2); // Random weather
         if(global.weather == 1 || global.weather == 2)
         {
-        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds);
+        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds); // cloud generation
         }
     }
     else
