@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>button_text = "EXIT";
+            <string>button_text = "NEW GAME";
 </string>
           </argument>
         </arguments>
@@ -51,7 +51,7 @@
             <string>event_inherited();
 
 // Event Code Here
-game_end();
+room_goto(rm_ccreator);
 </string>
           </argument>
         </arguments>

@@ -320,6 +320,34 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.plaName</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>320</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>120</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
