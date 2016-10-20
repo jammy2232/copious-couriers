@@ -63,6 +63,10 @@
       <sprite>sprites\spr_boulder</sprite>
       <sprite>sprites\spr_deadWagon</sprite>
     </sprites>
+    <sprites name="RiverMiniGame_sprites">
+      <sprite>sprites\spr_rock</sprite>
+      <sprite>sprites\spr_raft</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -103,6 +107,9 @@
     </backgrounds>
     <backgrounds name="MountainMinigame Backgrounds">
       <background>background\bg_mountainmini</background>
+    </backgrounds>
+    <backgrounds name="RiverMiniGame Backgrounds">
+      <background>background\bg_rivermini</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -178,10 +185,15 @@
       </objects>
       <object>objects\ob_boulder</object>
     </objects>
+    <objects name="RiverMinigame_objects">
+      <object>objects\ob_raft</object>
+      <object>objects\ob_rock</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_level</room>
     <room>rooms\rm_mountain_minigame</room>
+    <room>rooms\rm_river_minigame</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
