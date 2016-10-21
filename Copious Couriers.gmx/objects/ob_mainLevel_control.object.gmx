@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>// Global Varialbes used to control pace and identify current level Biomes [Info Only] 
 global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
-global.scrollSpeed = 1; // change this to speed up and slowdown the game
+global.scrollSpeed = 1; // change this to speed up and slowdown the game (also controlled in Quit menu)
      
 // Game tweaking values for visuals and gameplay of the main level ********************************************************************************
 screenWidth = 640;
@@ -66,6 +66,7 @@ randomize(); // improves the randomness of the level generation
 
 // Local Variables relating to Biomes timing 
 step = 0;
+room_persistent = true;
 
 // Managing the background system with initial values [DO NOT EDIT]
 currentBiome = 0;
@@ -114,7 +115,10 @@ global.mountain = biomeScreens;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Start of the game use the start biome code ***********************************************************************************************************
+            <string>if (global.scrollSpeed &gt; 0) // only do anything if the game is moving;
+{
+
+// Start of the game use the start biome code ***********************************************************************************************************
 if (global.biomeIdent == 0)
 {
     background_index[0] = currentBackground;
@@ -257,6 +261,7 @@ currentBiome = global.biomeIdent;
 // Counter increment
 step++;
 
+
 // Reset Counter and change to the next biome
 if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChange == true) */ ) // Update the biome
 {
@@ -285,6 +290,9 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     
 } 
 // ******************************************************************************************************************************************************
+
+
+} // endif for the game moving if at the start
 
 </string>
           </argument>
