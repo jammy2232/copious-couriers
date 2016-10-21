@@ -7,7 +7,78 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>quitmenu = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>quitmenu = !quitmenu;
+
+if (quitmenu == true)
+{
+global.scrollSpeed = 0;
+background_hspeed[1] = 0
+background_hspeed[0] = 0
+instance_create(320, 240, ob_quitscreen);
+}
+else if (quitmenu == false)
+{
+
+global.scrollSpeed = 1;
+
+if(background_x[1] == -ob_mainLevel_control.screenWidth) // check the backround condition before unpausing
+    {
+        background_hspeed[1] = 0;
+        background_hspeed[0] = 0;    
+    }
+    else
+    {
+        background_hspeed[1] = -global.scrollSpeed;
+        background_hspeed[0] = -global.scrollSpeed;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

@@ -120,7 +120,7 @@ game_end();
             <kind>1</kind>
             <string>draw_self();
 x1 = x - string_width(button_text)/2;
-y1 = y - string_height(button_text)/2;
+y1 = y + 15 - string_height(button_text)/2; // Minus a factor to centre the text due to sprite
 draw_text(x1,y1,button_text);
 </string>
           </argument>

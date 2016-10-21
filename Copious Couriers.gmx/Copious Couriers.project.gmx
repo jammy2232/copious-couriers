@@ -56,6 +56,7 @@
     <sprites name="Menus">
       <sprite>sprites\spr_Button</sprite>
       <sprite>sprites\spr_TextBox</sprite>
+      <sprite>sprites\spr_Quitmenu</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -175,6 +176,7 @@
     </objects>
     <objects name="Quitmenu_objects">
       <object>objects\ob_quitmenu</object>
+      <object>objects\ob_quitscreen</object>
     </objects>
     <objects name="Character creations objects">
       <object>objects\ob_character</object>
