@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize();
+            <string>no_money = false;
+randomize();
 for (i = 0; i &lt; 5; i++)
 {
     item = random_range(0,9);
@@ -57,11 +58,32 @@ for (i = 0; i &lt; 5; i++)
             <kind>1</kind>
             <string>if (distance_to_point(mouse_x,mouse_y)&lt;=0 &amp;&amp; mouse_check_button(mb_left))
 {
-    self.visible = false;
+    if (mouse_check_button_pressed(mb_left))
+    {
+        if (shop_pool[0,1]&gt;global.gold)
+        {
+            no_money = true
+        }
+        else
+        {
+            no_money = false
+            global.gold-=shop_pool[0,1];
+            global.p_health+=shop_pool[0,2];
+        }
+    }
+    if (no_money = true)
+    {
+        sprite_index = spr_shop_button_no;
+    }
+    else
+    {
+        sprite_index = spr_shop_button_clicked;
+    }
+    
 }
 else
 {
-    self.visible=true;
+    sprite_index = spr_shop_button;
 }
 </string>
           </argument>
@@ -93,10 +115,10 @@ draw_set_color(make_color_rgb(0,246,58));
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(fnt_shop);
-draw_text_transformed(x-90,y,shop_pool[0,0],0.8,0.8,0);
+draw_text_transformed(x-120,y,shop_pool[0,0],0.7,0.7,0);
 draw_set_color(make_color_rgb(255,216,48));
 draw_set_halign(fa_left);
-draw_text_transformed(x-45,y,shop_pool[0,1],1.2,1.2,0);
+draw_text_transformed(x-55,y,shop_pool[0,1],0.9,0.9,0);
 draw_set_halign(fa_center);
 </string>
           </argument>
