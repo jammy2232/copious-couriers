@@ -53,6 +53,10 @@
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
     </sprites>
+    <sprites name="Menus">
+      <sprite>sprites\spr_Button</sprite>
+      <sprite>sprites\spr_TextBox</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -91,6 +95,10 @@
         <background>background\bg_biomeIdent2_plain_snow</background>
       </backgrounds>
     </backgrounds>
+    <backgrounds name="Menu Backgrounds">
+      <background>background\bg_start</background>
+      <background>background\bg_ccreate</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -101,6 +109,9 @@
       <script>scripts\object2.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_startmenu</font>
+  </fonts>
   <objects name="objects">
     <objects name="MainLevel_objects">
       <objects name="Background objects">
@@ -156,8 +167,24 @@
         <object>objects\ob_encounter_highwayman</object>
       </objects>
     </objects>
+    <objects name="Startmenu objects">
+      <object>objects\ob_parbutton</object>
+      <object>objects\ob_endbutton</object>
+      <object>objects\ob_ngbutton</object>
+      <object>objects\ob_Game_ini</object>
+    </objects>
+    <objects name="Quitmenu_objects">
+      <object>objects\ob_quitmenu</object>
+    </objects>
+    <objects name="Character creations objects">
+      <object>objects\ob_character</object>
+      <object>objects\ob_name_entry</object>
+      <object>objects\ob_donebutton</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_startmenu</room>
+    <room>rooms\rm_ccreator</room>
     <room>rooms\rm_main_level</room>
   </rooms>
   <help>

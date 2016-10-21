@@ -275,7 +275,7 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
         global.weather = irandom_range(0,2); // Random weather
         if(global.weather == 1 || global.weather == 2)
         {
-        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds);
+        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds); // cloud generation
         }
     }
     else
@@ -317,6 +317,34 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
           <argument>
             <kind>0</kind>
             <string>100</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.plaName</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>320</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>120</string>
           </argument>
         </arguments>
       </action>
