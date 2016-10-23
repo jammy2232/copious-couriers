@@ -26,11 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>// Global Varialbes used to control pace and identify current level Biomes [Info Only] 
+// NOTE SEE START MENU Creation Code for other globals for the gameplay!!!!!"!!!
 global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
 global.scrollSpeed = 1; // change this to speed up and slowdown the game (also controlled in Quit menu)
+global.pause = false;
      
 // Game tweaking values for visuals and gameplay of the main level ********************************************************************************
-screenWidth = 640;
+screenWidth = 640; // change this in rm_starmenu instance code if needed.
 biomeScreens = 3; // Min is 3;
 transFactor = 4;
 roadMiddle_y = 310;
@@ -40,8 +42,8 @@ hudSize = 60;
 weather = 0;
 
 // Object placement frequencies - calculated as = step%object frequency
-ob1freq = 8;
-ob2freq = 32;
+ob1freq = 32;
+ob2freq = 64;
 // ob3freq = 16; [FUTURE]
 // ob4freq = 32;
 
@@ -260,6 +262,7 @@ currentBiome = global.biomeIdent;
 
 // Counter increment
 step++;
+global.pdistance++;
 
 
 // Reset Counter and change to the next biome
@@ -295,64 +298,6 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
 } // endif for the game moving if at the start
 
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>step</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>global.plaName</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>320</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>120</string>
           </argument>
         </arguments>
       </action>

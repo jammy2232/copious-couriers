@@ -38,7 +38,6 @@
         <sprite>sprites\spr_snow_simpletree</sprite>
         <sprite>sprites\spr_snow_clouds</sprite>
         <sprite>sprites\spr_snow_patch</sprite>
-        <sprite>sprites\spr_HUD</sprite>
         <sprites name="Button_functionality_sprites">
           <sprite>sprites\spr_button_unpressed</sprite>
           <sprite>sprites\spr_button_pressed</sprite>
@@ -52,6 +51,8 @@
         <sprite>sprites\spr_clouds</sprite>
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
+      <sprite>sprites\spr_HUD_top</sprite>
+      <sprite>sprites\spr_HUD_bot</sprite>
     </sprites>
     <sprites name="Menus">
       <sprite>sprites\spr_Button</sprite>
@@ -152,8 +153,10 @@
         <object>objects\ob_wagon_wheel_back</object>
         <object>objects\ob_wagon_wagon</object>
       </objects>
+      <object>objects\ob_pause_controller</object>
       <object>objects\ob_mainLevel_control</object>
-      <object>objects\ob_HUD</object>
+      <object>objects\ob_HUD_bot</object>
+      <object>objects\ob_HUD_top</object>
     </objects>
     <objects name="TEMP _ HOLD">
       <object>objects\ob_snow_simpletree</object>
