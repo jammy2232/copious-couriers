@@ -52,26 +52,12 @@
 
 if (quitmenu == true)
 {
-global.scrollSpeed = 0;
-background_hspeed[1] = 0
-background_hspeed[0] = 0
+global.pause = true;
 instance_create(320, 240, ob_quitscreen);
 }
 else if (quitmenu == false)
 {
-
-global.scrollSpeed = 1;
-
-if(background_x[1] == -ob_mainLevel_control.screenWidth) // check the backround condition before unpausing
-    {
-        background_hspeed[1] = 0;
-        background_hspeed[0] = 0;    
-    }
-    else
-    {
-        background_hspeed[1] = -global.scrollSpeed;
-        background_hspeed[0] = -global.scrollSpeed;
-    }
+global.pause = false;
 }
 </string>
           </argument>

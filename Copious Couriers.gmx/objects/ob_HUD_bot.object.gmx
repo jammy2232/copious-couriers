@@ -49,7 +49,10 @@ map_y = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>map_x = (global.pdistance/global.enddistance)*560;
+            <string>if (map_x &lt; 560)
+{
+map_x = (global.pdistance/global.enddistance)*560;
+}
 
 </string>
           </argument>

@@ -2,12 +2,35 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>endtimer = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,54 +48,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.pause == true)
+            <string>// Dealing with hunger and health
+if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0)
 {
-global.scrollSpeed = 0;
-background_hspeed[1] = 0
-background_hspeed[0] = 0
-}
-else if (global.pause == false)
-{
-
-global.scrollSpeed = 1;
-
-if(background_x[1] == -ob_mainLevel_control.screenWidth) // check the backround condition before unpausing
+    if(global.hunger &gt; 0)
     {
-        background_hspeed[1] = 0;
-        background_hspeed[0] = 0;    
+    global.hunger--;
     }
     else
     {
-        background_hspeed[1] = -global.scrollSpeed;
-        background_hspeed[0] = -global.scrollSpeed;
+    global.p_health -= 5;
+    }
+} 
+
+// death
+if(global.p_health &lt; 0)
+    {
+    // put bad stuff here.
+    }
+
+// End of the game
+if(global.pdistance &gt; global.enddistance)
+{
+    global.endevent = true;
+       
+    if (endtimer == 300)
+    {
+    inst = instance_create(740,350, ob_endgame);
+    // instance of the end of the game ect here.
+    }
+
+    if (endtimer &lt; 302)
+    {
+     endtimer++;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="80">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(ob_quitmenu.quitmenu == false)
-{
-global.pause = !global.pause;
-}
+
+
 </string>
           </argument>
         </arguments>
