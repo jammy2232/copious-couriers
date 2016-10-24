@@ -88,9 +88,10 @@ if(global.p_health &lt; 0)
 // graves for effecrt
 for(index = 0; index &lt; 100; index++)
 {
-    if(global.pdistance == global.prevdeaths[index,0])
+    if(global.pdistance == (global.prevdeaths[index,0]-ob_mainLevel_control.screenWidth) &amp;&amp; global.prevdeaths[index,0] != -1)
     {
-         instance_create(650,293+60, ob_grave); // make sure it's in front of everything
+         current_tob = instance_create(650,293+60, ob_grave); // make sure it's in front of everything
+         current_tob.text = global.prevdeaths[index,1];
     }
 }
     
@@ -112,6 +113,29 @@ if(global.pdistance &gt; global.enddistance)
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.p_health -= 100;
 </string>
           </argument>
         </arguments>

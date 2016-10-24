@@ -55,6 +55,7 @@
         <sprite>sprites\spr_cclouds1</sprite>
         <sprite>sprites\spr_cclouds2</sprite>
         <sprite>sprites\grave</sprite>
+        <sprite>sprites\spr_tombstone_message</sprite>
       </sprites>
       <sprites name="Path_Sprites">
         <sprite>sprites\spr_pstone1</sprite>
@@ -136,6 +137,7 @@
         <object>objects\ob_cclouds</object>
         <object>objects\ob_cclouds2</object>
         <object>objects\ob_grave</object>
+        <object>objects\ob_tombstone_words</object>
       </objects>
       <objects name="Desert_objects">
         <object>objects\ob_desert_1</object>
@@ -167,6 +169,7 @@
         <object>objects\ob_object_snow</object>
       </objects>
       <objects name="Wagon_objects">
+        <object>objects\ob_player_character</object>
         <object>objects\ob_wagon_wheel_front</object>
         <object>objects\ob_wagon_wheel_back</object>
         <object>objects\ob_wagon_wagon</object>
@@ -176,7 +179,6 @@
       </objects>
       <object>objects\ob_HUD_bot</object>
       <object>objects\ob_HUD_top</object>
-      <object>objects\ob_player_character</object>
     </objects>
     <objects name="TEMP _ HOLD">
       <object>objects\ob_snow_simpletree</object>
@@ -194,6 +196,7 @@
     <objects name="Startmenu objects">
       <object>objects\ob_parbutton</object>
       <object>objects\ob_endbutton</object>
+      <object>objects\ob_clearhigh</object>
       <object>objects\ob_ngbutton</object>
       <object>objects\ob_Game_ini</object>
     </objects>
