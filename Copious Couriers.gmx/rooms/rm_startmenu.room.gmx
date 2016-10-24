@@ -7,13 +7,51 @@
   <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>10</speed>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>// starting conditions
+//global.p_health = 100;
+//global.hunger = 100;
+//global.gold = 20;
+//screenWidth = 640;
+
+// main game
+//global.enddistance = 200*screenWidth; // screens
+//global.pdistance = 0;
+//global.endevent = false;
+
+// File and array for storing death data - start load previous data
+index = 0
+global.saveindex = 0; // keeps track of where we are in the array
+
+global.prevdeaths[100,2] = -1;
+ini_open("gamedata.ini"); 
+
+for(index = 0; index &lt; 100; index++)
+{
+global.prevdeaths[index,0] = ini_read_real('distance', string(index), -1);
+global.prevdeaths[index,1] = ini_read_string('name', string(index), "none");
+}
+
+ini_close(); 
+
+// Find the right place to start with in the array
+for(index = 0; index &lt; 100; index++)
+{
+if (global.prevdeaths[index,0] == -1)
+{
+    global.saveindex = index;
+}
+else
+{
+    global.saveindex = 0;
+}
+    
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
-  <clearDisplayBuffer>-1</clearDisplayBuffer>
+  <clearDisplayBuffer>0</clearDisplayBuffer>
   <makerSettings>
     <isSet>0</isSet>
     <w>0</w>
@@ -51,8 +89,9 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="ob_endbutton" x="320" y="352" name="inst_C317C72D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ob_ngbutton" x="320" y="256" name="inst_ECF108C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_endbutton" x="320" y="384" name="inst_C317C72D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_ngbutton" x="320" y="192" name="inst_ECF108C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ob_clearhigh" x="320" y="288" name="inst_773DBC94" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

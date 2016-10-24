@@ -51,7 +51,18 @@
             <string>event_inherited();
 
 // Event Code Here
+// save data
+ini_open("gamedata.ini"); 
+for(index = 0; index &lt; 100; index++)
+{
+ini_write_real('distance', string(index), global.prevdeaths[index,0]); 
+ini_write_string('name', string(index), global.prevdeaths[index,1]);
+}
+ini_close(); 
+
+// close
 game_end();
+
 </string>
           </argument>
         </arguments>
