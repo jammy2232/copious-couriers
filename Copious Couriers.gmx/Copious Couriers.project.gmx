@@ -104,6 +104,7 @@
     </scripts>
     <scripts name="event_creation">
       <script>scripts\objectSelectorScript.gml</script>
+      <script>scripts\event_timer.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -165,9 +166,6 @@
       <object>objects\event_spawn</object>
     </objects>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\event_timeline</timeline>
-  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_main_level</room>
   </rooms>

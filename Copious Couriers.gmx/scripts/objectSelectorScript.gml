@@ -1,6 +1,6 @@
 randomize();
-objectRandNum = irandom_range(1,10); // generates a random number from 1-10
-switch(biomeIdent){ //each case list will be a list of possible events in a biome
+var objectRandNum = irandom_range(1,10); // generates a random number from 1-10
+switch(global.biomeIdent){ //each case list will be a list of possible events in a biome
     case (1): //use the () for the case to adjust the rarity of an event
         switch(objectRandNum){ //use bigger numbers to add rarity to events
             case(1): //2/10 chance in activating
