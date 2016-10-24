@@ -58,6 +58,7 @@
         <sprite>sprites\spr_txtBoxL</sprite>
         <sprite>sprites\spr_txtBoxS</sprite>
         <sprite>sprites\spr_event_button</sprite>
+        <sprite>sprites\spr_outcome</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -154,7 +155,11 @@
       <object>objects\ob_HUD</object>
       <objects name="Event_Objects">
         <object>objects\obj_event_parent</object>
-        <object>objects\obj_event_button</object>
+        <object>objects\obj_event_template</object>
+        <object>objects\obj_event_button1</object>
+        <object>objects\obj_event_button2</object>
+        <object>objects\obj_event_button3</object>
+        <object>objects\obj_event_button4</object>
       </objects>
     </objects>
     <objects name="TEMP _ HOLD">
