@@ -41,6 +41,15 @@ grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
 
+// Gameplay
+// starting conditions
+global.p_health = 100;
+global.hunger = 100;
+global.gold = 20;
+global.enddistance = 200*screenWidth; // screens
+global.pdistance = 0;
+global.endevent = false;
+
 // Object placement frequencies - calculated as = step%object frequency
 ob1freq = 32;
 ob2freq = 64;

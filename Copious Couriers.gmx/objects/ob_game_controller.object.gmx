@@ -65,8 +65,35 @@ if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0)
 if(global.p_health &lt; 0)
     {
     // put bad stuff here.
+    
+    // record the death
+    global.prevdeaths[global.saveindex,0] = global.pdistance;
+    global.prevdeaths[global.saveindex,1] = global.plaName;
+    
+    // check and increment the save index
+    if (global.saveindex &lt; 100)
+    {
+        global.saveindex++;
     }
+    else
+    {
+        global.saveindex = 0;
+    }
+    
+    room_persistent = false;
+    room_goto(rm_startmenu); // temp test    
+    
+}
 
+// graves for effecrt
+for(index = 0; index &lt; 100; index++)
+{
+    if(global.pdistance == global.prevdeaths[index,0])
+    {
+         instance_create(650,293+60, ob_grave); // make sure it's in front of everything
+    }
+}
+    
 // End of the game
 if(global.pdistance &gt; global.enddistance)
 {
