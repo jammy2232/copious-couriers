@@ -28,6 +28,7 @@
             <string>if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button(mb_left)))
 {
     obj_event_parent.pressed = 3;
+    instance_destroy();
 }
 </string>
           </argument>

@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>should_draw_optionsl = false;
-should_draw_outcomel = false;
+            <string>pressed = -1;
 </string>
           </argument>
         </arguments>
@@ -51,33 +50,67 @@ should_draw_outcomel = false;
             <kind>1</kind>
             <string>if (!instance_exists(obj_event_parent))
 {
-    x=x-1;
+    x-=1;
 }
 else
 {
-    switch (obj_event_parent.pressed)
+    for (i = 1;i&lt;5;i++)
     {
-        case 1:
+    if (button[i].pressed = 1)
+    {
+    if (button[i] = button[1])
+    {
+        //top left button actions
+        obj_event_parent.should_draw_options = false;
+        obj_event_parent.should_draw_outcome = true;
+    }
+    if (button[i] = button[2])
+    {
+        //top left button actions
+        obj_event_parent.should_draw_options = false;
+        obj_event_parent.should_draw_outcome = true;
+    }
+    if (button[i] = button[3])
+    {
+        //top left button actions
+        obj_event_parent.should_draw_options = false;
+        obj_event_parent.should_draw_outcome = true;
+    }
+    if (button[i] = button[4])
+    {
+        //top left button actions
+        obj_event_parent.should_draw_options = false;
+        obj_event_parent.should_draw_outcome = true;
+    }
+    }
+    }
+    /*switch (pressed)
+    {
+        case 0:
             {
                 //top left button actions
                 obj_event_parent.should_draw_options = false;
+                obj_event_parent.should_draw_outcome = true;
             }
-        case 2:
+        case 1:
             {
                 //top right button actions
                 obj_event_parent.should_draw_options = false;
+                obj_event_parent.should_draw_outcome = true;
             }
-        case 3:
+        case 2:
             {
                 //bottom left button actions
                 obj_event_parent.should_draw_options = false;
+                obj_event_parent.should_draw_outcome = true;
             }
-        case 4:
+        case 3:
             {
                 //bottom right button actions
                 obj_event_parent.should_draw_options = false;
+                obj_event_parent.should_draw_outcome = true;
             }
-    }
+    }*/
 }
 
 //temp test
@@ -104,19 +137,22 @@ if (x==-32) {x=680;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//set the number of options there are for the player to chose from
+            <string>instance_create(x,y,obj_event_dummy);
+obj_event_dummy.sprite_index = sprite_index;
+//sprite_index = -1;
+//set the number of options there are for the player to chose from
 global.event_options = 4;
 instance_create(room_width/2,room_height/2,obj_event_parent);
 if(instance_exists(obj_event_parent))
 {
-    if (should_draw_outcomel = false)
+    if (obj_event_parent.should_draw_outcome = false)
     {
-        should_draw_optionsl = true;
+        obj_event_parent.should_draw_options = true;
         
-        instance_create(obj_event_parent.x-133.13,obj_event_parent.y-15,obj_event_button1);
-        instance_create(obj_event_parent.x+133.13,obj_event_parent.y-15,obj_event_button2);
-        instance_create(obj_event_parent.x-133.13,obj_event_parent.y+64.33,obj_event_button3);
-        instance_create(obj_event_parent.x+133.13,obj_event_parent.y+64.33,obj_event_button4);
+        button[1] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y-15,obj_event_button1);
+        button[2] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y-15,obj_event_button1);
+        button[3] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y+64.33,obj_event_button1);
+        button[4] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y+64.33,obj_event_button1);
     }
 }
 </string>
@@ -141,11 +177,9 @@ if(instance_exists(obj_event_parent))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-
-if (instance_exists(obj_event_parent))
+            <string>if (instance_exists(obj_event_parent))
 {
-    if ((obj_event_parent.should_draw_options = true)&amp;&amp;(obj_event_parentshould_draw_outcome = false))
+    if ((obj_event_parent.should_draw_options = true)&amp;&amp;(obj_event_parent.should_draw_outcome = false))
     {
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
@@ -165,6 +199,10 @@ if (instance_exists(obj_event_parent))
     {
         draw_text_transformed(obj_event_parent.x,obj_event_parent.y-85.27,"OutcomeText",1,1,0);
     }
+}
+else
+{
+    draw_self()
 }
 </string>
           </argument>
