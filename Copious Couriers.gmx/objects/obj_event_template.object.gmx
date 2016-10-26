@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pressed = -1;
+            <string>action = -1;
+ident = -1;
+generated = false;
+pressed = -1;
 </string>
           </argument>
         </arguments>
@@ -54,63 +57,49 @@
 }
 else
 {
-    for (i = 1;i&lt;5;i++)
+    for (i=1;i&lt;5;i++)
     {
-    if (button[i].pressed = 1)
-    {
-    if (button[i] = button[1])
-    {
-        //top left button actions
-        obj_event_parent.should_draw_options = false;
-        obj_event_parent.should_draw_outcome = true;
+        if (button[i].pressed=1)
+        {
+            action = i;
+            break;
+        }
     }
-    if (button[i] = button[2])
+    switch (action)
     {
-        //top left button actions
-        obj_event_parent.should_draw_options = false;
-        obj_event_parent.should_draw_outcome = true;
-    }
-    if (button[i] = button[3])
-    {
-        //top left button actions
-        obj_event_parent.should_draw_options = false;
-        obj_event_parent.should_draw_outcome = true;
-    }
-    if (button[i] = button[4])
-    {
-        //top left button actions
-        obj_event_parent.should_draw_options = false;
-        obj_event_parent.should_draw_outcome = true;
-    }
-    }
-    }
-    /*switch (pressed)
-    {
-        case 0:
+        case 1:
             {
                 //top left button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
+
+                break;
             }
-        case 1:
+        case 2:
             {
                 //top right button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
+
+                break;
             }
-        case 2:
+        case 3:
             {
                 //bottom left button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
+
+                break;
             }
-        case 3:
+        case 4:
             {
                 //bottom right button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
+
+                break;
             }
-    }*/
+    }
 }
 
 //temp test
@@ -145,14 +134,15 @@ global.event_options = 4;
 instance_create(room_width/2,room_height/2,obj_event_parent);
 if(instance_exists(obj_event_parent))
 {
-    if (obj_event_parent.should_draw_outcome = false)
+    if ((obj_event_parent.should_draw_outcome = false) &amp;&amp; (generated = false))
     {
         obj_event_parent.should_draw_options = true;
         
-        button[1] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y-15,obj_event_button1);
-        button[2] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y-15,obj_event_button1);
-        button[3] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y+64.33,obj_event_button1);
-        button[4] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y+64.33,obj_event_button1);
+        button[1] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y-15,obj_event_button);
+        button[2] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y-15,obj_event_button);
+        button[3] = instance_create(obj_event_parent.x-133.13,obj_event_parent.y+64.33,obj_event_button);
+        button[4] = instance_create(obj_event_parent.x+133.13,obj_event_parent.y+64.33,obj_event_button);
+        generated = true;
     }
 }
 </string>
@@ -197,7 +187,7 @@ if(instance_exists(obj_event_parent))
     }
     else if (obj_event_parent.should_draw_outcome = true)
     {
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-85.27,"OutcomeText",1,1,0);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-85.27,action,1,1,0);
     }
 }
 else

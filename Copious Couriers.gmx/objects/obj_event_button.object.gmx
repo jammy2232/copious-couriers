@@ -50,7 +50,11 @@
             <kind>1</kind>
             <string>if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button(mb_left)))
 {
-    pressed = 1;
+    for (i = 1;1 &lt; 5; i++)
+    {
+        pressed = 1;
+        break;
+    }
 }
 </string>
           </argument>

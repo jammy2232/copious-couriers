@@ -156,10 +156,7 @@
       <objects name="Event_Objects">
         <object>objects\obj_event_parent</object>
         <object>objects\obj_event_template</object>
-        <object>objects\obj_event_button1</object>
-        <object>objects\obj_event_button2</object>
-        <object>objects\obj_event_button3</object>
-        <object>objects\obj_event_button4</object>
+        <object>objects\obj_event_button</object>
         <object>objects\obj_event_dummy</object>
       </objects>
     </objects>
