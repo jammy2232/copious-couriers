@@ -46,19 +46,11 @@
         </sprites>
         <sprites name="Encounters_sprites">
           <sprite>sprites\spr_encounter_highwayman</sprite>
-          <sprite>sprites\placeholder_encounter_1</sprite>
-          <sprite>sprites\placeholder_encounter_2</sprite>
         </sprites>
       </sprites>
       <sprites name="Background Sprites">
         <sprite>sprites\spr_clouds</sprite>
         <sprite>sprites\spr_mountain</sprite>
-      </sprites>
-      <sprites name="Event_Sprites">
-        <sprite>sprites\spr_txtBoxL</sprite>
-        <sprite>sprites\spr_txtBoxS</sprite>
-        <sprite>sprites\spr_event_button</sprite>
-        <sprite>sprites\spr_outcome</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -108,9 +100,6 @@
       <script>scripts\object1.gml</script>
       <script>scripts\object2.gml</script>
     </scripts>
-    <scripts name="event_creation">
-      <script>scripts\objectSelectorScript.gml</script>
-    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="MainLevel_objects">
@@ -153,12 +142,6 @@
       </objects>
       <object>objects\ob_mainLevel_control</object>
       <object>objects\ob_HUD</object>
-      <objects name="Event_Objects">
-        <object>objects\obj_event_parent</object>
-        <object>objects\obj_event_template</object>
-        <object>objects\obj_event_button</object>
-        <object>objects\obj_event_dummy</object>
-      </objects>
     </objects>
     <objects name="TEMP _ HOLD">
       <object>objects\ob_snow_simpletree</object>
@@ -171,15 +154,9 @@
       </objects>
       <objects name="Encounters_objects">
         <object>objects\ob_encounter_highwayman</object>
-        <object>objects\encounter_1</object>
-        <object>objects\encounter_2</object>
       </objects>
-      <object>objects\event_spawn</object>
     </objects>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\event_timeline</timeline>
-  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_main_level</room>
   </rooms>
