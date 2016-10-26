@@ -26,12 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>// Global Varialbes used to control pace and identify current level Biomes [Info Only] 
+// NOTE SEE START MENU Creation Code for other globals for the gameplay!!!!!"!!!
 global.biomeIdent = 0; // 0 = Start, 1 = Forest, 2 = Plain, 3 = Mountain, 4 = Desert, (TBC) - End
-global.scrollSpeed = 1; // change this to speed up and slowdown the game
+global.scrollSpeed = 1; // change this to speed up and slowdown the game (also controlled in Quit menu)
+global.pause = false;
      
 // Game tweaking values for visuals and gameplay of the main level ********************************************************************************
-screenWidth = 640;
-biomeScreens = 3; // Min is 3;
+screenWidth = 640; // change this in rm_starmenu instance code if needed.
+biomeScreens = 8; // Min is 3;
 transFactor = 4;
 roadMiddle_y = 310;
 grass_road_y = 290;
@@ -39,11 +41,20 @@ grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
 
+// Gameplay
+// starting conditions
+global.p_health = 100;
+global.hunger = 100;
+global.gold = 20;
+global.enddistance = 200*screenWidth; // screens
+global.pdistance = 0;
+global.endevent = false;
+
 // Object placement frequencies - calculated as = step%object frequency
-ob1freq = 8;
-ob2freq = 32;
-// ob3freq = 16; [FUTURE]
-// ob4freq = 32;
+ob1freq = 32;
+ob2freq = 64;
+ob3freq = 256; // path stones
+ ob4freq = 64; // Casual Clouds
 
 // Generate the Cart on the road *Need to sort out the placement variables to make this easier to read.*
 wagonWheel_1b = instance_create(65, roadMiddle_y+hudSize-16 , ob_wagon_wheel_back);
@@ -51,6 +62,7 @@ wagonWheel_2b = instance_create(140, roadMiddle_y+hudSize-16, ob_wagon_wheel_bac
 wagonWheel_3f = instance_create(45, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
 wagonWheel_3f = instance_create(120, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
 wagonWagon = instance_create(90, roadMiddle_y+hudSize-10, ob_wagon_wagon); 
+wagonWagon = instance_create(155, roadMiddle_y+hudSize+10, ob_player_character); 
 
 // Place the initial company headquarters *Need to sort out the placement variables to make this easier to read.*
 wagonWagon = instance_create(340, (grass_sky_y+100), ob_start_company); 
@@ -66,6 +78,7 @@ randomize(); // improves the randomness of the level generation
 
 // Local Variables relating to Biomes timing 
 step = 0;
+room_persistent = true;
 
 // Managing the background system with initial values [DO NOT EDIT]
 currentBiome = 0;
@@ -114,7 +127,10 @@ global.mountain = biomeScreens;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Start of the game use the start biome code ***********************************************************************************************************
+            <string>if (global.scrollSpeed &gt; 0) // only do anything if the game is moving;
+{
+
+// Start of the game use the start biome code ***********************************************************************************************************
 if (global.biomeIdent == 0)
 {
     background_index[0] = currentBackground;
@@ -159,6 +175,10 @@ if(background_x[1] == -screenWidth)
 
 
 // Object Generation ************************************************************************************************************************************
+if(global.endevent == false)
+{
+
+/// Everything here  generates objects.
 if(transitionOngoing == false)
 {
 // Generate old and new objects at half rate 
@@ -171,12 +191,24 @@ if(transitionOngoing == false)
         inst = instance_create(640, ySpawn, object1(previousBiome)); 
     }
     
-        if(step mod irandom_range(1,(ob2freq*transFactor)) == 0) // Main Object 2 - spawns between road and sky
+    if(step mod irandom_range(1,(ob2freq*transFactor)) == 0) // Main Object 2 - spawns between road and sky
     {
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // New Object2s
         inst = instance_create(640, ySpawn, object2(global.biomeIdent));
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; // Old object2s 
         inst = instance_create(640, ySpawn, object2(previousBiome)); 
+    }
+            
+    if(step mod irandom_range(1,(ob3freq*transFactor)) == 0) // path objects  - no 3 - spawns between road and sky
+    {
+        ySpawn = irandom_range(roadMiddle_y - 10, roadMiddle_y + 10)+ hudSize; // New Object2s
+        inst = instance_create(640, ySpawn, ob_pstone1 );
+    }
+    
+    if(step mod irandom_range(1,(ob4freq*transFactor)) == 0) // path objects  - no 3 - spawns between road and sky
+    {
+        ySpawn = irandom_range(0, grass_sky_y)+ hudSize; // clouds
+        inst = instance_create(640, ySpawn, object4(irandom_range(1,3)));
     }
 
 }
@@ -195,8 +227,21 @@ if(transitionOngoing == true)
         ySpawn = irandom_range(grass_sky_y, grass_road_y)+ hudSize; 
         inst = instance_create(640, ySpawn, object2(global.biomeIdent));
     }
+    
+    if(step mod irandom_range(1,(ob3freq*transFactor)) == 0) // path objects  - no 3 - spawns between road and sky
+    {
+        ySpawn = irandom_range(roadMiddle_y - 10, roadMiddle_y + 10)+ hudSize; // New Object2s
+        inst = instance_create(640, ySpawn, ob_pstone1);
+    }
+    
+    if(step mod irandom_range(1,(ob4freq*transFactor)) == 0) // path objects  - no 3 - spawns between road and sky
+    {
+        ySpawn = irandom_range(0, grass_sky_y)+ hudSize; // clouds
+        inst = instance_create(640, ySpawn, object4(irandom_range(1,3)));
+    }
 }
 
+}
 
 // ******************************************************************************************************************************************************
 
@@ -256,6 +301,8 @@ currentBiome = global.biomeIdent;
 
 // Counter increment
 step++;
+global.pdistance++;
+
 
 // Reset Counter and change to the next biome
 if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChange == true) */ ) // Update the biome
@@ -275,7 +322,7 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
         global.weather = irandom_range(0,2); // Random weather
         if(global.weather == 1 || global.weather == 2)
         {
-        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds);
+        inst = instance_create(640, grass_sky_y+hudSize, ob_clouds); // cloud generation
         }
     }
     else
@@ -286,37 +333,10 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
 } 
 // ******************************************************************************************************************************************************
 
+
+} // endif for the game moving if at the start
+
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>step</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
           </argument>
         </arguments>
       </action>

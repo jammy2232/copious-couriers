@@ -48,7 +48,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle -= 2;
+            <string>if(global.scrollSpeed &gt; 0)
+{
+image_angle -= 2;
+}
+
 </string>
           </argument>
         </arguments>
