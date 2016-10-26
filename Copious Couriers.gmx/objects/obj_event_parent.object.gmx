@@ -64,7 +64,14 @@ else
             <string>if (should_draw_outcome = true)
 {
     sprite_index = spr_outcome;
+    if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button_pressed(mb_left)))
+    {
+        instance_deactivate_object(obj_event_dummy);
+        instance_destroy();
+    }
 }
+
+
 </string>
           </argument>
         </arguments>
