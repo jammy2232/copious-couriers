@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_boulderBounce</sound>
+    <sound>sound\snd_rumble</sound>
+    <sound>sound\snd_splat</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Mainlevel Sprites">
       <sprites name="Forest_sprites">
@@ -71,6 +75,22 @@
       <sprite>sprites\spr_TextBox</sprite>
       <sprite>sprites\spr_Quitmenu</sprite>
     </sprites>
+    <sprites name="MountainMiniGame">
+      <sprite>sprites\spr_boulder_0</sprite>
+      <sprite>sprites\spr_deadWagon</sprite>
+    </sprites>
+    <sprites name="RiverRaftingMiniGame">
+      <sprite>sprites\spr_raft</sprite>
+      <sprite>sprites\spr_rock</sprite>
+    </sprites>
+    <sprites name="Event Sprites">
+      <sprites name="Shop">
+        <sprite>sprites\spr_shop_button</sprite>
+        <sprite>sprites\spr_shop_button_clicked</sprite>
+        <sprite>sprites\spr_shop_button_no</sprite>
+        <sprite>sprites\spr_shop_main</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -113,6 +133,10 @@
       <background>background\bg_start</background>
       <background>background\bg_ccreate</background>
     </backgrounds>
+    <backgrounds name="Minigame Backgrounds">
+      <background>background\bg_mountainmini</background>
+      <background>background\bg_rivermini</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -123,9 +147,11 @@
       <script>scripts\object2.gml</script>
       <script>scripts\object4.gml</script>
     </scripts>
+    <script>scripts\Shop_Items.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_startmenu</font>
+    <font>fonts\fnt_shop</font>
   </fonts>
   <objects name="objects">
     <object>objects\ob_mainLevel_control</object>
@@ -213,11 +239,34 @@
     <objects name="EndGame">
       <object>objects\ob_endgame</object>
     </objects>
+    <objects name="Minigames">
+      <objects name="Mountain Pass">
+        <object>objects\ob_boulder</object>
+        <object>objects\ob_mwagon</object>
+        <object>objects\ob_mwheelb</object>
+        <object>objects\ob_mwheelf</object>
+        <object>objects\ob_mdeadWagon</object>
+      </objects>
+      <objects name="River Rafting">
+        <object>objects\ob_rock</object>
+        <object>objects\ob_raft</object>
+      </objects>
+    </objects>
+    <objects name="Events Objects">
+      <objects name="Shop">
+        <object>objects\obj_shop_button</object>
+        <object>objects\obj_shop_main</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_startmenu</room>
     <room>rooms\rm_ccreator</room>
     <room>rooms\rm_main_level</room>
+    <rooms name="Minigames">
+      <room>rooms\rm_mountain_minigame</room>
+      <room>rooms\rm_river_minigame</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
