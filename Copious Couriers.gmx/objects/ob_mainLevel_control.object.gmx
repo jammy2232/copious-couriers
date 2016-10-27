@@ -49,6 +49,7 @@ global.gold = 20;
 global.enddistance = 10*screenWidth; // screens
 global.pdistance = 0;
 global.endevent = false;
+Shop_Items(); // initialise the shop items - change script to add or remove items
 
 // Object placement frequencies - calculated as = step%object frequency
 ob1freq = 32;

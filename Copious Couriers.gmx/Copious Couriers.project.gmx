@@ -83,6 +83,14 @@
       <sprite>sprites\spr_raft</sprite>
       <sprite>sprites\spr_rock</sprite>
     </sprites>
+    <sprites name="Event Sprites">
+      <sprites name="Shop">
+        <sprite>sprites\spr_shop_button</sprite>
+        <sprite>sprites\spr_shop_button_clicked</sprite>
+        <sprite>sprites\spr_shop_button_no</sprite>
+        <sprite>sprites\spr_shop_main</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Mainlevel Backgrounds">
@@ -139,9 +147,11 @@
       <script>scripts\object2.gml</script>
       <script>scripts\object4.gml</script>
     </scripts>
+    <script>scripts\Shop_Items.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_startmenu</font>
+    <font>fonts\fnt_shop</font>
   </fonts>
   <objects name="objects">
     <object>objects\ob_mainLevel_control</object>
@@ -242,14 +252,20 @@
         <object>objects\ob_raft</object>
       </objects>
     </objects>
+    <objects name="Events Objects">
+      <objects name="Shop">
+        <object>objects\obj_shop_button</object>
+        <object>objects\obj_shop_main</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_river_minigame</room>
     <room>rooms\rm_startmenu</room>
     <room>rooms\rm_ccreator</room>
     <room>rooms\rm_main_level</room>
     <rooms name="Minigames">
       <room>rooms\rm_mountain_minigame</room>
+      <room>rooms\rm_river_minigame</room>
     </rooms>
   </rooms>
   <help>
