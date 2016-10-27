@@ -124,6 +124,10 @@
       <background>background\bg_start</background>
       <background>background\bg_ccreate</background>
     </backgrounds>
+    <backgrounds name="Minigame Backgrounds">
+      <background>background\bg_mountainmini</background>
+      <background>background\bg_rivermini</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
