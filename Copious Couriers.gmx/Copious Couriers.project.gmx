@@ -54,6 +54,12 @@
         <sprite>sprites\spr_clouds</sprite>
         <sprite>sprites\spr_mountain</sprite>
       </sprites>
+      <sprites name="Event_Sprites">
+        <sprite>sprites\spr_txtBoxL</sprite>
+        <sprite>sprites\spr_txtBoxS</sprite>
+        <sprite>sprites\spr_event_button</sprite>
+        <sprite>sprites\spr_outcome</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -147,6 +153,12 @@
       </objects>
       <object>objects\ob_mainLevel_control</object>
       <object>objects\ob_HUD</object>
+      <objects name="Event_Objects">
+        <object>objects\obj_event_parent</object>
+        <object>objects\obj_event_template</object>
+        <object>objects\obj_event_button</object>
+        <object>objects\obj_event_dummy</object>
+      </objects>
     </objects>
     <objects name="TEMP _ HOLD">
       <object>objects\ob_snow_simpletree</object>
