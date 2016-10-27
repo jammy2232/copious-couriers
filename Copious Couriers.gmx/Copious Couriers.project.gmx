@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_boulderBounce</sound>
+    <sound>sound\snd_rumble</sound>
+    <sound>sound\snd_splat</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Mainlevel Sprites">
       <sprites name="Forest_sprites">
@@ -70,6 +74,13 @@
       <sprite>sprites\spr_Button</sprite>
       <sprite>sprites\spr_TextBox</sprite>
       <sprite>sprites\spr_Quitmenu</sprite>
+    </sprites>
+    <sprites name="MountainMiniGame">
+      <sprite>sprites\spr_boulder_0</sprite>
+    </sprites>
+    <sprites name="RiverRaftingMiniGame">
+      <sprite>sprites\spr_raft</sprite>
+      <sprite>sprites\spr_rock</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -213,11 +224,27 @@
     <objects name="EndGame">
       <object>objects\ob_endgame</object>
     </objects>
+    <objects name="Minigames">
+      <objects name="Mountain Pass">
+        <object>objects\ob_boulder</object>
+        <object>objects\ob_mwagon</object>
+        <object>objects\ob_mwheelb</object>
+        <object>objects\ob_mwheelf</object>
+      </objects>
+      <objects name="River Rafting">
+        <object>objects\ob_rock</object>
+        <object>objects\ob_raft</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_mountain_minigame</room>
     <room>rooms\rm_startmenu</room>
     <room>rooms\rm_ccreator</room>
     <room>rooms\rm_main_level</room>
+    <rooms name="Minigames">
+      <room>rooms\rm_river_minigame</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
