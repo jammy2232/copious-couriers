@@ -16,7 +16,7 @@ instance_create(288,224,ob_raft);
 
 for (i=0;i&lt;6;i+=1)
 {
-    irnd=irandom(5);
+    irnd=irandom_range(0,4);
     
     for(j=0;j&lt;5;j+=1)
     {

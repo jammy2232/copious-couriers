@@ -20,7 +20,7 @@ wheelf2=instance_create(wagon.x-48,wagon.y+16,ob_mwheelf);
 
 for (i=0;i&lt;3;i+=1)
 {
-instance_create(random_range(256,640),720,ob_boulder);
+instance_create(random_range(512,800),720,ob_boulder);
 }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>

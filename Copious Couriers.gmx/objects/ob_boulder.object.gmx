@@ -68,14 +68,36 @@ if((y&gt;=512)||(x&lt;=tx-400 || x&gt;=tx+400))
     
     y=-64;
     
-    //get new x position
-    x=random_range(tx-320,tx+320)
+    //get new x position, dependant on where the player is
+    if(ob_mwagon.x&lt;640)
+    {
+        x=random_range(512,960);
+    }
+    else if(ob_mwagon.x&gt;=1280)
+    {
+        x=random_range(tx-320,1600);
+    }
+    else
+    {
+        x=random_range(tx-320,tx+320);
+    }
     
     //check for collisions and move to the right if there are any
     //not self flag needs to be true otherwise it collides with itself
     while collision_circle(x,y,32,ob_boulder,false,true)
     {
-        x=random_range(tx-320,tx+320)
+        if(ob_mwagon.x&lt;640)
+        {
+            x=random_range(512,960);
+        }
+        else if(ob_mwagon.x&gt;=1280)
+        {
+            x=random_range(tx-320,1600);
+        }
+        else
+        {
+            x=random_range(tx-320,tx+320);
+        }
     }
     
     //set rolling direction and speed
