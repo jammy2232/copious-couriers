@@ -27,12 +27,13 @@
             <kind>1</kind>
             <string>no_money = false;
 randomize();
-for (i = 0; i &lt; 5; i++)
+for (i = 0; i &lt; 6; i++)
 {
     item = random_range(0,9);
     shop_pool[i,0] = global.item_pool[item,0];
     shop_pool[i,1] = global.item_pool[item,1];
     shop_pool[i,2] = global.item_pool[item,2];
+    shop_pool[i,3] = global.item_pool[item,3];
 }
 </string>
           </argument>
@@ -69,6 +70,7 @@ for (i = 0; i &lt; 5; i++)
             no_money = false
             global.gold-=shop_pool[0,1];
             global.p_health+=shop_pool[0,2];
+            global.hunger+=shop_pool[0,3];
         }
     }
     if (no_money = true)
