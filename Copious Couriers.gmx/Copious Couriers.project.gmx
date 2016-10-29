@@ -80,6 +80,12 @@
       <sprites name="General">
         <sprite>sprites\spr_encounter_highwayman</sprite>
       </sprites>
+      <sprites name="Event Interaction">
+        <sprite>sprites\spr_event_button</sprite>
+        <sprite>sprites\spr_outcome</sprite>
+        <sprite>sprites\spr_txtBoxL</sprite>
+        <sprite>sprites\spr_txtBoxS</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -238,12 +244,14 @@
         <object>objects\obj_shop_button</object>
         <object>objects\obj_shop_main</object>
       </objects>
-      <objects name="Game Events">
-        <object>objects\encounter_1</object>
-        <object>objects\encounter_2</object>
-      </objects>
       <objects name="General">
-        <object>objects\ob_encounter_highwayman</object>
+        <object>objects\ob_event_gen_highway</object>
+      </objects>
+      <objects name="Event Interaction - DO NOT EDIT">
+        <object>objects\obj_event_button</object>
+        <object>objects\obj_event_dummy</object>
+        <object>objects\obj_event_parent</object>
+        <object>objects\obj_event_template</object>
       </objects>
     </objects>
   </objects>
