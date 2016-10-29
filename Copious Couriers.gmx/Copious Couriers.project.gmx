@@ -39,19 +39,6 @@
       <sprites name="Start_sprites">
         <sprite>sprites\spr_start_Company</sprite>
       </sprites>
-      <sprites name="TEMP - HOLD">
-        <sprite>sprites\spr_snow_simpletree</sprite>
-        <sprite>sprites\spr_snow_clouds</sprite>
-        <sprite>sprites\spr_snow_patch</sprite>
-        <sprites name="Button_functionality_sprites">
-          <sprite>sprites\spr_button_unpressed</sprite>
-          <sprite>sprites\spr_button_pressed</sprite>
-          <sprite>sprites\spr_button_highlight</sprite>
-        </sprites>
-        <sprites name="Encounters_sprites">
-          <sprite>sprites\spr_encounter_highwayman</sprite>
-        </sprites>
-      </sprites>
       <sprites name="Background Sprites">
         <sprite>sprites\spr_clouds</sprite>
         <sprite>sprites\spr_mountain</sprite>
@@ -89,6 +76,9 @@
         <sprite>sprites\spr_shop_button_clicked</sprite>
         <sprite>sprites\spr_shop_button_no</sprite>
         <sprite>sprites\spr_shop_main</sprite>
+      </sprites>
+      <sprites name="General">
+        <sprite>sprites\spr_encounter_highwayman</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -147,7 +137,11 @@
       <script>scripts\object2.gml</script>
       <script>scripts\object4.gml</script>
     </scripts>
-    <script>scripts\Shop_Items.gml</script>
+    <scripts name="Event Scripts">
+      <script>scripts\Shop_Items.gml</script>
+      <script>scripts\event_timer.gml</script>
+      <script>scripts\eventSelectorScript.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_startmenu</font>
@@ -206,19 +200,6 @@
       <object>objects\ob_HUD_bot</object>
       <object>objects\ob_HUD_top</object>
     </objects>
-    <objects name="TEMP _ HOLD">
-      <object>objects\ob_snow_simpletree</object>
-      <object>objects\ob_snow_clouds</object>
-      <object>objects\ob_snow_patch</object>
-      <objects name="Templates_objects">
-        <objects name="ob_Buttons">
-          <object>objects\ob_button_template</object>
-        </objects>
-      </objects>
-      <objects name="Encounters_objects">
-        <object>objects\ob_encounter_highwayman</object>
-      </objects>
-    </objects>
     <objects name="Startmenu objects">
       <object>objects\ob_parbutton</object>
       <object>objects\ob_endbutton</object>
@@ -256,6 +237,13 @@
       <objects name="Shop">
         <object>objects\obj_shop_button</object>
         <object>objects\obj_shop_main</object>
+      </objects>
+      <objects name="Game Events">
+        <object>objects\encounter_1</object>
+        <object>objects\encounter_2</object>
+      </objects>
+      <objects name="General">
+        <object>objects\ob_encounter_highwayman</object>
       </objects>
     </objects>
   </objects>

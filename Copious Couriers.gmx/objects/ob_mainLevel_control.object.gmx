@@ -40,13 +40,15 @@ grass_road_y = 290;
 grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
+encountered = false; // Event generator code
+event_step = irandom(screenWidth)+2*screenWidth;
 
 // Gameplay
 // starting conditions
 global.p_health = 100;
 global.hunger = 100;
 global.gold = 20;
-global.enddistance = 10*screenWidth; // screens
+global.enddistance = 200*screenWidth; // screens
 global.pdistance = 0;
 global.endevent = false;
 Shop_Items(); // initialise the shop items - change script to add or remove items
@@ -296,6 +298,17 @@ switch(global.weather)
 // ******************************************************************************************************************************************************
 
 
+// Object generation code
+if (encountered == false)
+{
+    if (step == event_step)
+    {
+        encountered = true;
+        eventSelectorScript();
+    }
+}
+
+
 // Loop End Logic ***************************************************************************************************************************************
 // Identify the current biome for background
 currentBiome = global.biomeIdent;
@@ -312,6 +325,13 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
     
+    // This will randomise the next event
+    if (encountered == true)
+    {
+        event_step = irandom(screenWidth)*2;
+    }
+    
+    // creates a mountain if required
     if (global.biomeIdent == 3)
     {
     inst = instance_create(640, grass_sky_y+hudSize, ob_bg_mountain);
