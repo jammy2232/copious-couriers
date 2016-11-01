@@ -86,6 +86,9 @@
         <sprite>sprites\spr_txtBoxL</sprite>
         <sprite>sprites\spr_txtBoxS</sprite>
       </sprites>
+      <sprites name="End Game">
+        <sprite>sprites\spr_deathscroll</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -225,6 +228,8 @@
     </objects>
     <objects name="EndGame">
       <object>objects\ob_endgame</object>
+      <object>objects\ob_deathbutton</object>
+      <object>objects\ob_endgame_screen</object>
     </objects>
     <objects name="Minigames">
       <objects name="Mountain Pass">

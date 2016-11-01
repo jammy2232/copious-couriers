@@ -65,7 +65,7 @@ depth = ob_player_character.depth + 5;
             <string>if (!instance_exists(obj_event_parent))
 {
     //move object
-    x-=1;
+    x-=global.scrollSpeed;
 }
 else
 {

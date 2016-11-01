@@ -32,6 +32,8 @@
 else 
 {
     global.pause = true;
+    endscreen = instance_create(320,240,ob_endgame_screen);
+    endscreen.text = "You Win"; 
 }
 
 </string>
