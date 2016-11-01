@@ -8,6 +8,7 @@
     <sound>sound\snd_boulderBounce</sound>
     <sound>sound\snd_rumble</sound>
     <sound>sound\snd_splat</sound>
+    <sound>sound\Background_Music</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Mainlevel Sprites">

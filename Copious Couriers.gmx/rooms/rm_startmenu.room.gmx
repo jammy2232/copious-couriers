@@ -10,16 +10,8 @@
   <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>// starting conditions
-//global.p_health = 100;
-//global.hunger = 100;
-//global.gold = 20;
-//screenWidth = 640;
-
-// main game
-//global.enddistance = 200*screenWidth; // screens
-//global.pdistance = 0;
-//global.endevent = false;
+  <code>// Start Background Music
+audio_play_sound(Background_Music, 10, true);
 
 // File and array for storing death data - start load previous data
 index = 0
