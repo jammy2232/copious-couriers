@@ -39,7 +39,6 @@ ButtonFour = "Button 4 Text";
 action = -1;
 generated = false;
 x = 640 + sprite_width;
-depth = ob_player_character.depth + 5;
 </string>
           </argument>
         </arguments>
@@ -140,8 +139,7 @@ if (x==-sprite_width) {instance_destroy()}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//sprite_index = -1;
-//set the number of options there are for the player to chose from
+            <string>//set the number of options there are for the player to chose from
 global.event_options = 4;
 
 if (generated = false)
@@ -151,7 +149,9 @@ if (generated = false)
     
     instance_create(x,y,obj_event_dummy);
     obj_event_dummy.sprite_index = sprite_index;
+    sprite_index = -1;
     instance_create(room_width/2,room_height/2,obj_event_parent);
+    
     if(instance_exists(obj_event_parent))
     {
         if ((obj_event_parent.should_draw_outcome = false))
@@ -215,7 +215,7 @@ if (generated = false)
         draw_text_transformed(obj_event_parent.x,obj_event_parent.y-50.23,action,1,1,0);
     }
 }
-else
+else if (generated = false)
 {
     draw_self()
 }
