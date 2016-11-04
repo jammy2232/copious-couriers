@@ -31,12 +31,17 @@ ButtonOne = "Button 1 Text";
 ButtonTwo = "Button 2 Text";
 ButtonThree = "Button 3 Text";
 ButtonFour = "Button 4 Text";
+outcome = "Outcome Text";
+
+// Amount of options in the event (2 or 4)
+global.event_options = 4;
 
 // Put Object Logic in the Step Code!!
 
 // ******************************************************************************************
 // Object Operation
 action = -1;
+resolved = false;
 generated = false;
 x = 640 + sprite_width;
 </string>
@@ -78,6 +83,8 @@ else
             break;
         }
     }
+    if (resolved = false)
+    {
     switch (action)
     {
         case 1:
@@ -85,7 +92,9 @@ else
                 //top left button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
-
+                resolved = true;
+                outcome = "Outcome 1";
+                
                 break;
             }
         case 2:
@@ -93,7 +102,9 @@ else
                 //top right button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
-
+                resolved = true;
+                outcome = "Outcome 2";
+                
                 break;
             }
         case 3:
@@ -101,7 +112,9 @@ else
                 //bottom left button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
-
+                resolved = true;
+                outcome = "Outcome 3";
+                
                 break;
             }
         case 4:
@@ -109,9 +122,12 @@ else
                 //bottom right button actions
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
-
+                resolved = true;
+                outcome = "Outcome 4";
+                
                 break;
             }
+    }
     }
 }
 
@@ -209,10 +225,14 @@ if (generated = false)
         draw_text_transformed(obj_event_parent.x-133.13,obj_event_parent.y+64.33,ButtonThree,1,1,0);
         draw_text_transformed(obj_event_parent.x+133.13,obj_event_parent.y+64.33,ButtonFour,1,1,0);
         }
+        draw_set_valign(fa_top);
     }
     else if (obj_event_parent.should_draw_outcome = true)
     {
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-50.23,action,1,1,0);
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_center);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y,outcome,1,1,0);
+        draw_set_valign(fa_top);
     }
 }
 else if (generated = false)
