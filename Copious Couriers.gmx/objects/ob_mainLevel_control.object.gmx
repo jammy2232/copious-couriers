@@ -41,14 +41,14 @@ grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
 encountered = false; // Event generator code
-event_step = irandom(screenWidth)+2*screenWidth;
+event_step = irandom_range(0,screenWidth)+2*screenWidth;
 
 // Gameplay
 // starting conditions
 global.p_health = 100;
 global.hunger = 100;
 global.gold = 20;
-global.enddistance = 5*screenWidth; // screens
+global.enddistance = 200*screenWidth; // screens
 global.pdistance = 0;
 global.endevent = false;
 Shop_Items(); // initialise the shop items - change script to add or remove items
@@ -324,10 +324,14 @@ if (global.scrollSpeed &gt; 0) // only do anything if the game is moving;
 // Object generation code
 if (encountered == false)
 {
-    if (step == event_step)
+    if (step mod event_step = (event_step-1))
     {
         encountered = true;
-        eventSelectorScript();
+        
+        if(eventSelectorScript() == 0)
+        {
+        encountered = false;
+        }
     }
 }
 

@@ -26,7 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>//destroy object
-if (x==-sprite_width) {instance_destroy()}
+if (x==-sprite_width)
+{
+    ob_mainLevel_control.encountered = false;
+    instance_destroy();
+}
 //move object
 x-=global.scrollSpeed;
 </string>

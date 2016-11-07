@@ -28,8 +28,9 @@
             <string>x+=1;
 if(x&gt;=1700)
 {
-    show_message("you did it")
-    room_goto(rm_main_level); //crashes
+    global.pdistance += round(global.enddistance*0.1);
+    show_message("You made it over the river. It's reduced your journey lenth!");
+    room_goto(rm_main_level);
 }
 </string>
           </argument>
@@ -53,8 +54,8 @@ if(x&gt;=1700)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_message("dead")
-room_restart();
+            <string>global.p_health -= 50;
+room_goto(rm_main_level);
 </string>
           </argument>
         </arguments>

@@ -65,8 +65,9 @@ if place_meeting(x,y,ob_boulder)
 };
 if(x&gt;=1850)
 {
-    show_message("You made it.");
-    room_goto(rm_river_minigame);
+    show_message("You made it through the pass. It's reduced your journey lenth!");
+    global.pdistance += round(global.enddistance*0.1);
+    room_goto(rm_main_level);
 };
 </string>
           </argument>

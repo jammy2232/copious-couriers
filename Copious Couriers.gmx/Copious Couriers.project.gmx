@@ -80,6 +80,9 @@
       </sprites>
       <sprites name="General">
         <sprite>sprites\spr_encounter_highwayman</sprite>
+        <sprite>sprites\spr_signpost</sprite>
+        <sprite>sprites\spr_cave</sprite>
+        <sprite>sprites\spr_barrel</sprite>
       </sprites>
       <sprites name="Event Interaction">
         <sprite>sprites\spr_event_button</sprite>
@@ -151,6 +154,7 @@
       <script>scripts\Shop_Items.gml</script>
       <script>scripts\event_timer.gml</script>
       <script>scripts\eventSelectorScript.gml</script>
+      <script>scripts\grader.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -251,7 +255,11 @@
         <object>objects\obj_shop_main</object>
       </objects>
       <objects name="General">
-        <object>objects\ob_event_gen_highway</object>
+        <object>objects\ob_highwayman</object>
+        <object>objects\ob_signpost_mount</object>
+        <object>objects\ob_signpost_river</object>
+        <object>objects\ob_barrel</object>
+        <object>objects\ob_cave_mount</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
         <object>objects\obj_event_button</object>
