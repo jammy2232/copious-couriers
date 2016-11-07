@@ -48,7 +48,7 @@ event_step = irandom_range(0,screenWidth)+2*screenWidth;
 global.p_health = 100;
 global.hunger = 100;
 global.gold = 20;
-global.enddistance = 3*screenWidth; // screens
+global.enddistance = 200*screenWidth; // screens
 global.pdistance = 0;
 global.endevent = false;
 Shop_Items(); // initialise the shop items - change script to add or remove items
