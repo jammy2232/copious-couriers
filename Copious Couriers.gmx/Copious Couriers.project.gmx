@@ -233,8 +233,8 @@
     </objects>
     <objects name="EndGame">
       <object>objects\ob_endgame</object>
-      <object>objects\ob_deathbutton</object>
-      <object>objects\ob_endgame_screen</object>
+      <object>objects\ob_endgame_event</object>
+      <object>objects\ob_death</object>
     </objects>
     <objects name="Minigames">
       <objects name="Mountain Pass">

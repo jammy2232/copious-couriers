@@ -48,7 +48,7 @@ event_step = irandom_range(0,screenWidth)+2*screenWidth;
 global.p_health = 100;
 global.hunger = 100;
 global.gold = 20;
-global.enddistance = 200*screenWidth; // screens
+global.enddistance = 3*screenWidth; // screens
 global.pdistance = 0;
 global.endevent = false;
 Shop_Items(); // initialise the shop items - change script to add or remove items
@@ -67,7 +67,7 @@ wagonWheel_2b = instance_create(140, roadMiddle_y+hudSize-16, ob_wagon_wheel_bac
 wagonWheel_3f = instance_create(45, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
 wagonWheel_3f = instance_create(120, roadMiddle_y+2+hudSize, ob_wagon_wheel_front); 
 wagonWagon = instance_create(90, roadMiddle_y+hudSize-10, ob_wagon_wagon); 
-wagonWagon = instance_create(155, roadMiddle_y+hudSize+10, ob_player_character); 
+wagonPlayer = instance_create(155, roadMiddle_y+hudSize+10, ob_player_character); 
 
 // Place the initial company headquarters *Need to sort out the placement variables to make this easier to read.*
 wagonWagon = instance_create(340, (grass_sky_y+100), ob_start_company); 
@@ -102,6 +102,8 @@ background_y[2] = 60;
 global.weather = -1;
 global.snowAmount = 0;
 global.mountain = biomeScreens;
+
+global.death = false;
 
 // [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
 
@@ -381,6 +383,12 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
 } 
 // ******************************************************************************************************************************************************
 
+// End the game
+if(global.death == true)
+{
+        room_persistent = false;
+        room_goto(rm_startmenu); 
+}
 
 } // endif for the game moving if at the start
 

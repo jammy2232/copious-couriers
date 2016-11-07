@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>endtimer = 0;
+activated = false;
 </string>
           </argument>
         </arguments>
@@ -80,9 +81,11 @@ if(global.p_health &lt; 1)
         global.saveindex = 0;
     }
     
-    endscreen = instance_create(320,240,ob_endgame_screen);
-    endscreen.text = "You Died";
-    global.pause = true;  
+    if(activated == false)
+    {
+    inst = instance_create(165,390, ob_death);
+    activated = true;
+    }
  
 }
 
