@@ -262,6 +262,9 @@
         <object>objects\ob_signpost_river</object>
         <object>objects\ob_barrel</object>
         <object>objects\ob_cave_mount</object>
+        <object>objects\obj_merchant</object>
+        <object>objects\obj_beggar</object>
+        <object>objects\obj_sellsword</object>
         <object>objects\obj_signpost_shop</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
