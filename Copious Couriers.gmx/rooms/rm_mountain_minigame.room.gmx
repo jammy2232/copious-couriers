@@ -12,12 +12,14 @@
   <showcolour>-1</showcolour>
   <code>randomize();
 
+//puts together the wagon and places it on screen
 wagon=instance_create(192,288,ob_mwagon);
 wheelb1=instance_create(wagon.x-32,wagon.y-8,ob_mwheelb);
 wheelb2=instance_create(wagon.x+48,wagon.y-8,ob_mwheelb);
 wheelf1=instance_create(wagon.x+32,wagon.y+16,ob_mwheelf);
 wheelf2=instance_create(wagon.x-48,wagon.y+16,ob_mwheelf);
 
+//generates boulders
 for (i=0;i&lt;3;i+=1)
 {
 instance_create(random_range(512,800),720,ob_boulder);

@@ -48,10 +48,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(ob_mwagon.x+ob_mwagon.v&lt;ob_mwagon.limit_r)
+            <string>if(instance_exists(ob_mwagon))
+{
+if(ob_mwagon.x+ob_mwagon.v&lt;ob_mwagon.limit_r)
 {
     x+=ob_mwagon.v;
     image_angle-=ob_mwagon.v;
+}
 }
 </string>
           </argument>
@@ -75,10 +78,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(ob_mwagon.x-ob_mwagon.v&gt;ob_mwagon.limit_l)
+            <string>if(instance_exists(ob_mwagon))
+{
+if(ob_mwagon.x-ob_mwagon.v&gt;ob_mwagon.limit_l)
 {
     x-=ob_mwagon.v;
     image_angle+=ob_mwagon.v;
+}
 }
 </string>
           </argument>

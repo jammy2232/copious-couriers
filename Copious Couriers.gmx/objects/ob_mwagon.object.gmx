@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>limit_l=128;
+            <string>//Points on the level between which you can move
+limit_l=128;
 limit_r=1856;
+//speed of the wagon
 v=5;
 </string>
           </argument>
@@ -91,7 +93,7 @@ if(x&gt;=1850)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(x+v&lt;limit_r)
+            <string>if(x&lt;limit_r)
 {
     x+=v;
 }
@@ -117,7 +119,7 @@ if(x&gt;=1850)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(x-v&gt;limit_l)
+            <string>if((x-v)&gt;limit_l) //move if not beyond the invisible wall
 {
     x-=v;
 }

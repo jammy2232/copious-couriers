@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth=ob_mwagon.depth-2;
-if(random_range(0,10)&gt;5)
+            <string>depth=ob_mwagon.depth-2; //places the boulders in the back (mwagon depth=0, mwheelb depth=-1)
+if(random_range(0,10)&gt;5) //determines the initial rolling direction
 {
     v=5;
 }
@@ -58,24 +58,24 @@ else
             <kind>1</kind>
             <string>//set position
 
-if(instance_exists(ob_mwagon))
+if(instance_exists(ob_mwagon)) //initial boulder positioning if player exists
 {
-    tx=ob_mwagon.x;
+    tx=ob_mwagon.x; //position of player
 
-if((y&gt;=512)||(x&lt;=tx-400 || x&gt;=tx+400))
+if((y&gt;=512)||(x&lt;=tx-600 || x&gt;=tx+800)) //checks position of boulder and if it's far enough off-screen it puts it back on top
 {
     //put y back on top
     
     y=-64;
     
     //get new x position, dependant on where the player is
-    if(ob_mwagon.x&lt;640)
+    if(ob_mwagon.x&lt;640) //player is still at the start
     {
-        x=random_range(512,960);
+        x=random_range(512,960); //boulders set to not spawn under 512px because otherwise there's a chance a boulder would fall on the player on the spawn point
     }
-    else if(ob_mwagon.x&gt;=1280)
+    else if(ob_mwagon.x&gt;=1280) //player is at the end
     {
-        x=random_range(tx-320,1600);
+        x=random_range(tx-320,1600); //puts a safe spot at the end of the level
     }
     else
     {
@@ -83,14 +83,14 @@ if((y&gt;=512)||(x&lt;=tx-400 || x&gt;=tx+400))
     }
     
     //check for collisions and move to the right if there are any
-    //not self flag needs to be true otherwise it collides with itself
+    //"not self" flag needs to be true otherwise it collides with itself instead of other instances
     while collision_circle(x,y,32,ob_boulder,false,true)
     {
-        if(ob_mwagon.x&lt;640)
+        if(ob_mwagon.x&lt;640) //player is still at the start
         {
             x=random_range(512,960);
         }
-        else if(ob_mwagon.x&gt;=1280)
+        else if(ob_mwagon.x&gt;=1280) //player is at the end
         {
             x=random_range(tx-320,1600);
         }
@@ -113,13 +113,13 @@ if((y&gt;=512)||(x&lt;=tx-400 || x&gt;=tx+400))
     v*=5;
 }
 }
-else if(y&gt;=512)
+else if(y&gt;=512) //if player dies the boulders instances get destroyed once off screen
 {
     instance_destroy();
 }
 
 //check for collisions
-//price collision is on because otherwise it could get kinda janky
+//precise collision is on because otherwise it could get kinda janky
 if collision_circle(x,y,32,ob_boulder,true,true)
 {
     v*=-1;
@@ -134,6 +134,7 @@ if !audio_is_playing(snd_rumble)
     audio_play_sound(snd_rumble,10,false);
 }
 
+//boulder movement
 x+=v;
 y+=7.5;
 image_angle-=v;

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(snd_splat,10,false);
+            <string>audio_play_sound(snd_splat,10,false); //splat
 global.p_health -= 50;
 </string>
           </argument>
@@ -49,7 +49,7 @@ global.p_health -= 50;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!instance_exists(ob_boulder))
+            <string>if (!instance_exists(ob_boulder)) //return to main level once all boulder instances are destroyed
 {
     room_goto(rm_main_level);
 }
