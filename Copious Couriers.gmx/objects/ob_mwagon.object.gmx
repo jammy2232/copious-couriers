@@ -28,6 +28,7 @@
             <string>//Points on the level between which you can move
 limit_l=128;
 limit_r=1856;
+stop_wheels = false;
 //speed of the wagon
 v=5;
 </string>
@@ -122,6 +123,10 @@ if(x&gt;=1850)
             <string>if((x-v)&gt;limit_l) //move if not beyond the invisible wall
 {
     x-=v;
+    stop_wheels = false;
+}
+else {
+stop_wheels = true;
 }
 </string>
           </argument>

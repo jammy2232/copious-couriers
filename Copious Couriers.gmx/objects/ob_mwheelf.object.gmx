@@ -80,7 +80,7 @@ if(ob_mwagon.x+ob_mwagon.v&lt;ob_mwagon.limit_r)
             <kind>1</kind>
             <string>if(instance_exists(ob_mwagon))
 {
-if(ob_mwagon.x-ob_mwagon.v&gt;ob_mwagon.limit_l)
+if(ob_mwagon.stop_wheels == false)
 {
     x-=ob_mwagon.v;
     image_angle+=ob_mwagon.v;
