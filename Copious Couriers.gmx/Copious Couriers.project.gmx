@@ -264,7 +264,11 @@
         <object>objects\ob_cave_mount</object>
         <object>objects\obj_merchant</object>
         <object>objects\obj_beggar</object>
+        <object>objects\obj_doctor</object>
         <object>objects\obj_sellsword</object>
+        <object>objects\obj_farmer</object>
+        <object>objects\obj_tax</object>
+        <object>objects\obj_peasant</object>
         <object>objects\obj_signpost_shop</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
