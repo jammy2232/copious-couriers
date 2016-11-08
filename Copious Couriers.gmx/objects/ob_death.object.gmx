@@ -121,6 +121,8 @@ if (generated = false)
 }
 else
 {
+    if (generated = true)
+    {
     for (i=1;i&lt;(global.event_options+1);i++)
     {
         if (button[i].pressed=1)
@@ -179,6 +181,7 @@ else
             }
     }
     }
+    }
 }
 
 //destroy object
@@ -210,6 +213,8 @@ if (x==-sprite_width) {instance_destroy()}
 {
     if ((obj_event_parent.should_draw_options = true)&amp;&amp;(obj_event_parent.should_draw_outcome = false))
     {
+        if (generated = true)
+        {
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
         draw_set_color(c_white);
@@ -229,6 +234,7 @@ if (x==-sprite_width) {instance_destroy()}
         draw_text_transformed(obj_event_parent.x,obj_event_parent.y-45.27,TitleText,1,1,0);
         }
         draw_set_valign(fa_top);
+        }
     }
     else if (obj_event_parent.should_draw_outcome = true)
     {

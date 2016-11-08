@@ -67,7 +67,11 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!instance_exists(obj_event_parent))
+            <string>if (global.p_health&lt;=0)
+{
+    instance_destroy();
+}
+if (!instance_exists(obj_event_parent))
 {
     //move object
     x-=global.scrollSpeed;

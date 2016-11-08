@@ -74,6 +74,7 @@
     <sprites name="Event Sprites">
       <sprites name="Shop">
         <sprite>sprites\spr_shop_button</sprite>
+        <sprite>sprites\spr_shop_leave</sprite>
         <sprite>sprites\spr_shop_button_clicked</sprite>
         <sprite>sprites\spr_shop_button_no</sprite>
         <sprite>sprites\spr_shop_main</sprite>
@@ -252,6 +253,7 @@
     <objects name="Events Objects">
       <objects name="Shop">
         <object>objects\obj_shop_button</object>
+        <object>objects\obj_shop_leave</object>
         <object>objects\obj_shop_main</object>
       </objects>
       <objects name="General">
@@ -260,6 +262,7 @@
         <object>objects\ob_signpost_river</object>
         <object>objects\ob_barrel</object>
         <object>objects\ob_cave_mount</object>
+        <object>objects\obj_signpost_shop</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
         <object>objects\obj_event_button</object>

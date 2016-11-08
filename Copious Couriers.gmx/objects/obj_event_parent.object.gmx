@@ -64,7 +64,7 @@ else
             <string>if (should_draw_outcome = true)
 {
     sprite_index = spr_outcome;
-    if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button_pressed(mb_left)))
+    if ((((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button_pressed(mb_left))) || (global.p_health&lt;=0))
     {
         instance_destroy();
         
