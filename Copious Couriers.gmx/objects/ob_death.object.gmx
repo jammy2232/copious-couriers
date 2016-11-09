@@ -143,8 +143,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Your final thought!#You forgot to asked to be paid#Thank you for working with us#Copious Couriers Ltd.";
-                    
+                outcome = "Your final thought!#You forgot to asked to be paid#Thank you for working with us#Copious Couriers Ltd."; 
                 global.death = true;
                 break;
             }
@@ -155,7 +154,6 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "You open the letter.#You die!# Before you get a chance to read it!#Game Over";
-                    
                 global.death = true;
                 break;
             }

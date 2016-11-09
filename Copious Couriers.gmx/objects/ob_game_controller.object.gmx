@@ -50,11 +50,18 @@ activated = false;
           <argument>
             <kind>1</kind>
             <string>// Dealing with hunger and health
-if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0)
+if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; global.scrollSpeed &gt; 0)
 {
     if(global.hunger &gt; 0)
     {
-    global.hunger--;
+        if(global.biomeIdent == 4)
+        {
+            global.hunger -=5;
+        }
+        else
+        {
+            global.hunger--;
+        } 
     }
     else
     {

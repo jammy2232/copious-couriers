@@ -84,6 +84,13 @@
         <sprite>sprites\spr_signpost</sprite>
         <sprite>sprites\spr_cave</sprite>
         <sprite>sprites\spr_barrel</sprite>
+        <sprite>sprites\spr_beggar</sprite>
+        <sprite>sprites\spr_doctor</sprite>
+        <sprite>sprites\spr_farmer</sprite>
+        <sprite>sprites\spr_merchant</sprite>
+        <sprite>sprites\spr_sellsword</sprite>
+        <sprite>sprites\spr_taxman</sprite>
+        <sprite>sprites\spr_peasant</sprite>
       </sprites>
       <sprites name="Event Interaction">
         <sprite>sprites\spr_event_button</sprite>
