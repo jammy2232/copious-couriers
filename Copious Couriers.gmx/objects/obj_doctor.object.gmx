@@ -249,7 +249,7 @@ if (generated = false)
         }
         else
         {
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-45.27,TitleText,1,1,0);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-40.27,TitleText,1,1,0);
         }
         draw_set_valign(fa_top);
     }

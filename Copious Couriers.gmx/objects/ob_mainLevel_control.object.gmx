@@ -110,8 +110,6 @@ global.death = false;
 
 // Future Features/ Ideas
 // biomeForceChange = false; // a flag to force a biome change (Future)
-
-
 </string>
           </argument>
         </arguments>
@@ -337,6 +335,12 @@ if (encountered == false)
     }
 }
 
+// This will randomise the next event
+if (encountered == true)
+{
+    event_step = round(irandom_range(screenWidth,screenWidth*2));
+}
+
 
 // Loop End Logic ***************************************************************************************************************************************
 // Identify the current biome for background
@@ -353,12 +357,6 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     step = 0;
     previousBiome = global.biomeIdent;
     global.biomeIdent = irandom_range(1,4); // Random a Biome
-    
-    // This will randomise the next event
-    if (encountered == true)
-    {
-        event_step = irandom(screenWidth)*2;
-    }
     
     // creates a mountain if required
     if (global.biomeIdent == 3)

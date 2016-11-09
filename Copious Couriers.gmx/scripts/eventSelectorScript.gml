@@ -2,8 +2,7 @@
 randomize()
 
 // Group the sets
-randomRange = 10;
-objectRandNum = grader(irandom_range(1,randomRange),randomRange);  // generates a random number from 1-10
+objectRandNum = grader(irandom_range(1,10));  // generates a random number from 1-10
 // Add more items
 
 // object pos for the middle of the road - use other if required
@@ -47,8 +46,8 @@ switch(global.biomeIdent){ //each case list will be a list of possible events in
             case(11):   return 0;
             case(12):   return 0;
             case(13):   return 0;
-            case(14):   return 0;// really Common Slots
-            case(15):   instance_create(objX,objY,obj_farmer);  return 1;
+            case(14):   instance_create(objX,objY,obj_farmer);  return 1;// really Common Slots
+            case(15):   return 0;
             case(16):   return 0;
 
         }

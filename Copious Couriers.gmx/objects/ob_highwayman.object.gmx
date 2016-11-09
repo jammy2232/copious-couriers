@@ -76,7 +76,7 @@ if (!instance_exists(obj_event_parent))
     //move object
     x-=global.scrollSpeed;
 }
-else
+else if(generated == true)
 {
     for (i=1;i&lt;(global.event_options+1);i++)
     {
@@ -243,7 +243,7 @@ if (generated = false)
             <kind>1</kind>
             <string>if (instance_exists(obj_event_parent))
 {
-    if ((obj_event_parent.should_draw_options = true)&amp;&amp;(obj_event_parent.should_draw_outcome = false))
+    if ((obj_event_parent.should_draw_options = true)&amp;&amp;(obj_event_parent.should_draw_outcome = false) &amp;&amp; generated == true)
     {
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
@@ -257,7 +257,7 @@ if (generated = false)
         {
         draw_text_transformed(button[3].x,button[3].y,ButtonThree,1,1,0);
         draw_text_transformed(button[4].x,button[4].y,ButtonFour,1,1,0);
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-85.27,TitleText,1,1,0);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-80.27,TitleText,1,1,0);
         }
         else
         {
