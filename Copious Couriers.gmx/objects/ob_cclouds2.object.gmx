@@ -26,6 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>x += sprite_width;
+
+if(irandom_range(1,2) == 1)
+{
+    depth = 90001;
+}
+else
+{
+    depth = -1;
+}    
 </string>
           </argument>
         </arguments>

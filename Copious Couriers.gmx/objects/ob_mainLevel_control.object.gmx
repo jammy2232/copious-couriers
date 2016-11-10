@@ -361,7 +361,7 @@ if(step == biomeScreens*screenWidth || global.biomeIdent == 0/*|| biomeForceChan
     // creates a mountain if required
     if (global.biomeIdent == 3)
     {
-    inst = instance_create(640, grass_sky_y+hudSize, ob_bg_mountain);
+    inst = instance_create(640, grass_sky_y+hudSize-1, ob_bg_mountain);
     }
     
     // Prevent transitions from weather to keep it simple
@@ -390,29 +390,6 @@ if(global.death == true)
 
 } // endif for the game moving if at the start
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.p_health -= 50;
 </string>
           </argument>
         </arguments>

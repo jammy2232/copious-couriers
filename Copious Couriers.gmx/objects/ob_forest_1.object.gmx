@@ -26,6 +26,17 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
+    if(irandom_range(1,2) == 1)
+    {
+        sprite_index = spr_forest_tree;
+    }
+    else 
+    {
+        sprite_index = spr_forest_tree2
+    }
+   
+// Snow Cover     
 inst = instance_create(x, y, ob_forest_1_snow); 
 </string>
           </argument>

@@ -16,6 +16,7 @@
         <sprite>sprites\spr_forest_tree</sprite>
         <sprite>sprites\spr_forest_tree_snow</sprite>
         <sprite>sprites\spr_forest_twig</sprite>
+        <sprite>sprites\spr_forest_tree2</sprite>
       </sprites>
       <sprites name="Plains_sprites">
         <sprite>sprites\spr_plains_grass</sprite>
