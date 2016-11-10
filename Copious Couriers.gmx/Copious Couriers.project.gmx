@@ -91,6 +91,8 @@
         <sprite>sprites\spr_sellsword</sprite>
         <sprite>sprites\spr_taxman</sprite>
         <sprite>sprites\spr_peasant</sprite>
+        <sprite>sprites\spr_doggo</sprite>
+        <sprite>sprites\spr_wizard</sprite>
       </sprites>
       <sprites name="Event Interaction">
         <sprite>sprites\spr_event_button</sprite>
@@ -277,6 +279,10 @@
         <object>objects\obj_tax</object>
         <object>objects\obj_peasant</object>
         <object>objects\obj_signpost_shop</object>
+        <object>objects\obj_cave_cult</object>
+        <object>objects\obj_drunk</object>
+        <object>objects\obj_doggo</object>
+        <object>objects\obj_wizard</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
         <object>objects\obj_event_button</object>
