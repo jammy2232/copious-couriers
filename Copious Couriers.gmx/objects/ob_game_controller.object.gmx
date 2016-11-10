@@ -78,7 +78,7 @@ if(global.p_health &lt; 1 &amp;&amp; activated == false )
     global.prevdeaths[global.saveindex,1] = global.plaName;
     
     // check and increment the save index for the 
-    if (global.saveindex &lt; 100)
+    if (global.saveindex &lt; 99)
     {
         global.saveindex++;
     }

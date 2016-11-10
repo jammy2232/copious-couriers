@@ -56,7 +56,7 @@ ini_open("gamedata.ini");
 
 ini_write_real('distance', string(100), global.saveindex); 
 
-for(index = 0; index &lt; 99; index++)
+for(index = 0; index &lt; 100; index++)
 {
     ini_write_real('distance', string(index), global.prevdeaths[index,0]); 
     ini_write_string('name', string(index), global.prevdeaths[index,1]);
