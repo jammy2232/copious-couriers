@@ -70,15 +70,14 @@ if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; gl
 } 
 
 // death
-if(global.p_health &lt; 1)
-    {
-    // put bad stuff here.
-    
-    // record the death
+if(global.p_health &lt; 1 &amp;&amp; activated == false )
+{
+
+    // record the death in the array
     global.prevdeaths[global.saveindex,0] = global.pdistance;
     global.prevdeaths[global.saveindex,1] = global.plaName;
     
-    // check and increment the save index
+    // check and increment the save index for the 
     if (global.saveindex &lt; 100)
     {
         global.saveindex++;
@@ -87,13 +86,10 @@ if(global.p_health &lt; 1)
     {
         global.saveindex = 0;
     }
-    
-    if(activated == false)
-    {
+        
+    // Activate the death animation ect
     inst = instance_create(165,390, ob_death);
-    activated = true;
-    }
- 
+    activated = true; // latch it
 }
 
 // graves for effecrt
