@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Object Pop up text 
-TitleText = "You come across a cave, there's some noise coming from within, what do you do?";
+TitleText = "There's some noise coming from within#What do you do?";
 ButtonOne = "Investigate";
 ButtonTwo = "Leave";
 ButtonThree = "";
@@ -97,7 +97,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You enter the cave and see a whole crowd of hooded figures, you freeze and see them crowd around a horrific scene on a dark altar. These grown people are playing the CHILD version of trivial pursuit, they see you. In an attempt to keep their abhorrent secret they run after you, brandishing knives, you manage to escape but not before taking a few shanks here or there.";
+                outcome = "You enter and see a crowd of hooded figures#You see them crowd around a horrific scene on a dark altar#Adults are playing the CHILD version of trivial pursuit#They see you and in an attempt to keep their abhorrent secret.# they run after you but you manage to escape only taking a few shanks here or there.";
                 global.p_health -= 10;
                 break;
             }
