@@ -15,7 +15,7 @@ switch(global.biomeIdent){ //each case list will be a list of possible events in
             case(1):    instance_create(objX,objY,ob_signpost_river); return 1; // Rare Slots
             case(2):    instance_create(objX,objY,obj_beggar);  return 1;
             case(3):    instance_create(objX,objY,ob_cave_mount); return 1; 
-            case(4):    // dummy 
+            case(4):    return 0;// dummy 
             case(5):    instance_create(objX,objY,obj_merchant);  return 1; // Common Slots
             case(6):    instance_create(objX,objY,obj_sellsword);  return 1;
             case(7):    instance_create(objX,objY,obj_peasant);  return 1;

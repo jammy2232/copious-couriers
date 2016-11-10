@@ -30,7 +30,7 @@ TitleText = "A drunken man blocks your path, he is staring at you intently";
 ButtonOne = "Shove him out of the way";
 ButtonTwo = "Ask him to leave";
 ButtonThree = "Run him over";
-ButtonFour = "";
+ButtonFour = "Wait";
 outcome = "Outcome Text";
 
 // Put Object Logic in the Step Code!!
@@ -64,7 +64,7 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.event_options = 3;
+            <string>global.event_options = 4;
 
 if (global.p_health&lt;=0)
 {
@@ -118,7 +118,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "With great force you manage to run him over with the cart, bit of a dick move";
+                outcome = "With great force# You manage to run him over with the cart# Bit of a dick move";
                 break;
             }
         case 4:
@@ -127,7 +127,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Outcome 4";
+                outcome = "He falls off the path.";
                 
                 break;
             }

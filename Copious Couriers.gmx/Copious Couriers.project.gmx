@@ -267,7 +267,6 @@
       </objects>
       <objects name="General">
         <object>objects\ob_highwayman</object>
-        <object>objects\ob_signpost_mount</object>
         <object>objects\ob_signpost_river</object>
         <object>objects\ob_barrel</object>
         <object>objects\ob_cave_mount</object>
@@ -283,6 +282,7 @@
         <object>objects\obj_drunk</object>
         <object>objects\obj_doggo</object>
         <object>objects\obj_wizard</object>
+        <object>objects\ob_signpost_mount</object>
       </objects>
       <objects name="Event Interaction - DO NOT EDIT">
         <object>objects\obj_event_button</object>
