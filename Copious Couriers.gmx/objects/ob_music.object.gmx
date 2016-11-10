@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>button_text = "NEW GAME";
+            <string>button_text = "Ozzed";
 </string>
           </argument>
         </arguments>
@@ -48,10 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-// Event Code Here
-room_goto(rm_ccreator);
+            <string>url_open_full('http://ozzed.net/', '_blank', 'resizable=1');
 </string>
           </argument>
         </arguments>

@@ -31,7 +31,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="6" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,12 +53,15 @@
 // Event Code Here
 // save data
 ini_open("gamedata.ini"); 
+
+ini_write_real('distance', string(100), global.saveindex); 
+
 for(index = 0; index &lt; 100; index++)
 {
-ini_write_real('distance', string(index), global.prevdeaths[index,0]); 
-ini_write_string('name', string(index), global.prevdeaths[index,1]);
+    ini_write_real('distance', string(index), global.prevdeaths[index,0]); 
+    ini_write_string('name', string(index), global.prevdeaths[index,1]);
 }
-ini_close(); 
+    ini_close(); 
 
 // close
 game_end();
