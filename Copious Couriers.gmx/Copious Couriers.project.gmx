@@ -286,11 +286,21 @@
         <object>objects\obj_event_template</object>
       </objects>
     </objects>
+    <objects name="Credits">
+      <object>objects\ob_Robert</object>
+      <object>objects\ob_music</object>
+      <object>objects\ob_cred_ecit</object>
+      <object>objects\obj_gabe</object>
+      <object>objects\ob_James</object>
+      <object>objects\ob_Matej</object>
+      <object>objects\ob_Sam</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_startmenu</room>
     <room>rooms\rm_ccreator</room>
     <room>rooms\rm_main_level</room>
+    <room>rooms\rm_Credits</room>
     <rooms name="Minigames">
       <room>rooms\rm_river_minigame</room>
       <room>rooms\rm_mountain_minigame</room>
