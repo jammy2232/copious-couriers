@@ -41,6 +41,7 @@ grass_sky_y = 212;
 hudSize = 60;
 weather = 0;
 encountered = false; // Event generator code
+encounteredNext = false;
 event_step = irandom_range(0,screenWidth)+2*screenWidth;
 
 // Gameplay
@@ -75,7 +76,6 @@ wagonWagon = instance_create(340, (grass_sky_y+100), ob_start_company);
 
 
 
-
 // [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
 
 // Seeding the Random Generator
@@ -102,8 +102,8 @@ background_y[2] = 60;
 global.weather = -1;
 global.snowAmount = 0;
 global.mountain = biomeScreens;
-
 global.death = false;
+
 
 // [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] [DO NOT EDIT] *********
 
@@ -324,7 +324,7 @@ if (global.scrollSpeed &gt; 0) // only do anything if the game is moving;
 // Object generation code
 if (encountered == false)
 {
-    if (step mod event_step = (event_step-1))
+    if (step mod event_step == (event_step-1))
     {
         encountered = true;
         
@@ -336,9 +336,10 @@ if (encountered == false)
 }
 
 // This will randomise the next event
-if (encountered == true)
+if (encounteredNext == true)
 {
-    event_step = round(irandom_range(screenWidth,screenWidth*2));
+    event_step = step+(round(irandom_range(screenWidth,screenWidth*2)));
+    encounteredNext = false;
 }
 
 
