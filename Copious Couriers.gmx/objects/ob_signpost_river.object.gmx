@@ -3,7 +3,7 @@
   <spriteName>spr_signpost</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100003</depth>
+  <depth>-9000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -32,7 +32,6 @@ ButtonTwo = "I am no Fool!";
 ButtonThree = "";
 ButtonFour = "";
 outcome = "Outcome Text";
-
 // Put Object Logic in the Step Code!!
 
 // ******************************************************************************************

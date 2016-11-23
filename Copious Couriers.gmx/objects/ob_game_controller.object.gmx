@@ -65,8 +65,23 @@ if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; gl
     }
     else
     {
+    //health and hunger limiting
+    global.hunger = 0;
     global.p_health -= 5;
     }
+    if (global.hunger&gt;100)
+    {
+        global.hunger = 100;
+    }
+    if (global.p_health&gt;100)
+    {
+        global.p_health = 100
+    }
+    else if (global.p_health&lt;0)
+    {
+        global.p_health = 0;
+    }
+    //limiting ends here
 } 
 
 // death
