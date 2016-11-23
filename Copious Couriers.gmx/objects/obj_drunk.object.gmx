@@ -64,9 +64,7 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.event_options = 4;
-
-if (global.p_health&lt;=0)
+            <string>if (global.p_health&lt;=0)
 {
     instance_destroy();
 }
@@ -161,7 +159,7 @@ if (x==-sprite_width) {instance_destroy()}
           <argument>
             <kind>1</kind>
             <string>//set the number of options there are for the player to chose from
-global.event_options = 2;
+global.event_options = 4;
 
 if (generated = false)
 {

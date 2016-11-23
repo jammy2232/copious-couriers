@@ -64,9 +64,7 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.event_options = 3;
-
-if (global.p_health&lt;=0)
+            <string>if (global.p_health&lt;=0)
 {
     instance_destroy();
 }
@@ -98,9 +96,9 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "Well done my servant, all I need is a small donation to help me fund my new church  - gold";
-                global.money -= 3;
-                if (global.money &lt; 0){
-                    global.money = 0;
+                global.gold -= 3;
+                if (global.gold &lt; 0){
+                    global.gold = 0;
                 }
                 break;
             }
@@ -163,7 +161,7 @@ if (x==-sprite_width) {instance_destroy()}
           <argument>
             <kind>1</kind>
             <string>//set the number of options there are for the player to chose from
-global.event_options = 2;
+global.event_options = 4;
 
 if (generated = false)
 {
