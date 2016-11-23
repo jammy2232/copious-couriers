@@ -28,7 +28,8 @@
             <string>//destroy object
 if (x==-sprite_width)
 {
-    ob_mainLevel_control.encountered = false;
+    ob_mainLevel_control.encounteredNext = false;
+    
     instance_destroy();
 }
 //move object
