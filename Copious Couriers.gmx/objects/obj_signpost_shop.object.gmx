@@ -54,6 +54,7 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
 if (x==-sprite_width)
 {
     ob_mainLevel_control.encounteredNext = false;
+    ob_mainLevel_control.encountered = false;
     instance_destroy();   
 }
 </string>
