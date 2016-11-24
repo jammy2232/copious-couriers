@@ -136,15 +136,15 @@ else if(generated == true)
                 resolved = true;
                 if (global.backup&gt;0)
                 {
-                    outcome = "You attempt to barter.#Things start to get heated until your#mercenary friend steps out from nowhere.#An 'agreement' is met...";
+                    outcome = "Highwaymen have no#time for bartering.#That is, until backup arrives...";
                     global.backup-=1;
                 }
                 else
                 {
-                    outcome = "You attempt to Barter.# A fight ensues.# You agree a lower fee#...with a few briuses";
+                    outcome = "Highwaymen have no#time for bartering.#You are relieved of your coin by force.";
                     global.p_health -= 10;
                 }
-                if(global.gold &gt; 10) {global.gold -= 0;}
+                if(global.gold &gt; 10) {global.gold -= 10;}
                 else {global.gold = 0;}
                 
                 break;
