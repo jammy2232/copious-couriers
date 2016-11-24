@@ -95,8 +95,8 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You try to uppercut the doggo#It makes a swift counter#...and steals your wallet";
-                global.gold -= 12;
+                outcome = "You try to uppercut the doggo but the doggo makes a swift counter and steals your wallet";
+                global.gold -= 6;
                 if (global.gold &lt; 0){
                     global.gold = 0;
                 }
@@ -108,7 +108,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You catch the doggo!#It's probably worth about 10 gold";
+                outcome = "You catch the doggo, it's probably worth about 10 gold";
                 global.gold += 10;
                 break;
             }
@@ -118,7 +118,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You give the doggo some of your food#Turns out the doggo's name is#...duggo.";
+                outcome = "You give the doggo some of your food, turns out the doggo's name is duggo.";
                 global.hunger -= 10;
                 break;
             }
@@ -128,7 +128,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You try to run away#The dog is too fast!#In the confusion of the situation#....you give it your wallet."
+                outcome = "You try to run away but the dog is too fast, in the confusion of the situation you give it your wallet."
                 global.gold -= 6;
                 if (global.gold &lt; 0){
                     global.gold = 0;

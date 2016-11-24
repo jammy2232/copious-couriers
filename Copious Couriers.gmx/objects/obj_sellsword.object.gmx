@@ -252,7 +252,7 @@ if (generated = false)
         {
         draw_text_transformed(button[3].x,button[3].y,ButtonThree,1,1,0);
         draw_text_transformed(button[4].x,button[4].y,ButtonFour,1,1,0);
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-75.27,TitleText,1,1,0);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-80.27,TitleText,1,1,0);
         }
         else
         {

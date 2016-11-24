@@ -133,10 +133,10 @@ else if(generated == true)
                 }
                 else
                 {
-                    outcome = "You attempt to Barter.#A fight ensues.# You agree a lower fee#...with a few briuses";
+                    outcome = "You attempt to Barter.# A fight ensues.# You agree a lower fee with a few briuses";
                     global.p_health -= 10;
                 }
-                if(global.gold &gt; 10) {global.gold -= 10;}
+                if(global.gold &gt; 10) {global.gold -= 0;}
                 else {global.gold = 0;}
                 
                 break;
