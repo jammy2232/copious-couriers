@@ -157,6 +157,14 @@ else if(generated == true)
                 resolved = true;
                 outcome = "You run.#A flying knife gets you.#Right in the back, ouch.";
                 global.p_health -= 75;
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
     }
