@@ -25,13 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (i = 1; i&lt;3; i++)
+            <string>pool[1,0] = "Cunt";
+pool[2,0] = "Cunt";
+
+while (pool[1,0] == pool[2,0])
+{
+for (i = 1; i&lt;3; i++)
 {
     rand_item = random_range(0,9);
     for (i2 = 0; i2&lt;4; i2++)
     {
         pool[i,i2] = global.item_pool[rand_item,i2];
     }
+}
 }
 // Object Pop up text
 TitleText = "This pack is only weighing me down sir,#care to take a look?";
