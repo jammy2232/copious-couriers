@@ -89,7 +89,7 @@ if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; gl
 } 
 
 // death
-if(global.p_health &lt; 1 &amp;&amp; activated == false )
+if(global.p_health = 0 &amp;&amp; activated == false )
 {
 
     // record the death in the array

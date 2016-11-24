@@ -28,7 +28,7 @@
             <string>x+=1; //speed of the raft
 if(x&gt;=1700)
 {
-    global.pdistance += round(global.enddistance*0.1);
+    global.pdistance += round((global.enddistance-global.pdistance)*0.2);
     show_message("You made it over the river. It's reduced your journey lenth!");
     room_goto(rm_main_level);
 }
