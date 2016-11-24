@@ -71,6 +71,22 @@ for (i = 0; i &lt; 6; i++)
             global.gold-=shop_pool[0,1];
             global.p_health+=shop_pool[0,2];
             global.hunger+=shop_pool[0,3];
+            if (global.p_health&lt;=0)
+                    {
+                        with (obj_shop_main)
+                        {
+                            instance_destroy();
+                        }
+                        with (obj_shop_leave)
+                        {
+                            instance_destroy();
+                        }
+                        with (obj_shop_button)
+                        {
+                            instance_destroy();
+                        }
+                    
+                    }
         }
     }
     if (no_money = true)

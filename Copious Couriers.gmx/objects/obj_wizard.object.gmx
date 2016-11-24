@@ -119,6 +119,14 @@ else
                 resolved = true;
                 outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
                 global.p_health -= 10;
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
         case 4:
@@ -129,7 +137,14 @@ else
                 resolved = true;
                 outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
                 global.p_health -= 10;
-                
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
     }

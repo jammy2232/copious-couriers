@@ -98,6 +98,14 @@ else
                 outcome = "You manage to shove him out of the way# It takes a alot of effort.#Luckily you find out he has a wallet.";
                 global.p_health -= 5;
                 global.gold += 15;
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
         case 2:
@@ -108,6 +116,14 @@ else
                 resolved = true;
                 outcome = "You wot m8?#You get a swift fist in your face";
                 global.p_health -= 15;
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
         case 3:

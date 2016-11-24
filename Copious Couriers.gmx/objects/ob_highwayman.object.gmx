@@ -117,6 +117,14 @@ else if(generated == true)
                 {
                     outcome = "You flail your pathetic arms.# You are beaten to a bulb.";
                     global.p_health -= 25;
+                    if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 }
                 break;
             }

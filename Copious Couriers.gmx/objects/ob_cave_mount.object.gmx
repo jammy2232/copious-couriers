@@ -98,7 +98,14 @@ else
                 outcome = "You enter the cave. It's shallow.#You feel a knock on the head.#You wake up outside.";
                 global.gold /=2;
                 global.p_health -=10;
-                
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
         case 2:

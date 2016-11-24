@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button(mb_left)))
+            <string>if (((distance_to_point(mouse_x,mouse_y)&lt;=0)) &amp;&amp; (mouse_check_button_released(mb_left)))
 {
     for (i = 1;1 &lt; 5; i++)
     {

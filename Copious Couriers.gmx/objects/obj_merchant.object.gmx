@@ -109,6 +109,14 @@ else
                     global.gold-=pool[1,1];
                     global.p_health+=pool[1,2];
                     global.hunger+=pool[1,3];
+                    if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 }
                 else
                 {
@@ -128,6 +136,14 @@ else
                     global.gold-=pool[2,1];
                     global.p_health+=pool[2,2];
                     global.hunger+=pool[2,3];
+                    if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 }
                 else
                 {

@@ -98,6 +98,14 @@ else
                 outcome = "You feel a bit queasy but it was#worth it to make the man happy";
                 global.p_health-=2;
                 global.hunger+=5;
+                if (global.p_health&lt;=0)
+                    {
+                        with (obj_event_parent)
+                        {
+                            instance_destroy();
+                        }
+                        instance_destroy();
+                    }
                 break;
             }
         case 2:
