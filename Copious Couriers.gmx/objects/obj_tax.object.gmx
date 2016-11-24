@@ -96,7 +96,7 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "He drops your offering into a#sizeable sack of gold.#So that’s what the goons are for.";
-                global.gold-=4;
+                global.gold-=8;
                 break;
             }
         case 2:
@@ -106,7 +106,7 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "I am in no mood for jests boy,#your fee has just increased.";
-                global.gold-=5;
+                global.gold-=15;
                 break;
             }
         case 3:
@@ -116,8 +116,8 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "You barely start moving and#the goons are on top of you.#‘Tax avoidance is a fineable offence!’";
-                global.gold-=8;
-                global.p_health-=4;
+                global.gold-=15;
+                global.p_health-=10;
                 break;
             }
         case 4:
@@ -127,7 +127,7 @@ else
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
                 outcome = "The tax collector sighs as#he motions for his goons.#No getting out of it this time";
-                global.gold-=6;
+                global.gold-=8;
                 break;
             }
     }
