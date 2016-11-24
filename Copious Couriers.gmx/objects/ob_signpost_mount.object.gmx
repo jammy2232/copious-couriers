@@ -95,10 +95,13 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                
-                outcome = "Returning from your attempt# to pass the mountain.";
+                instance_destroy();
+                with (obj_event_parent)
+                {
+                    instance_destroy();
+                }
+                global.pause = false;
                 room_goto(rm_mountain_minigame);
-                
                 break;
             }
         case 2:
