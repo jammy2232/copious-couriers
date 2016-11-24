@@ -49,13 +49,32 @@ activated = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Dealing with hunger and health
+            <string>//health and hunger limiting
+if (global.hunger&gt;100)
+{
+    global.hunger = 100;
+}
+else if (global.hunger&lt;0)
+{
+    global.hunger = 0;
+}
+if (global.p_health&gt;100)
+{
+    global.p_health = 100
+}
+else if (global.p_health&lt;0)
+{
+    global.p_health = 0;
+}
+
+// Dealing with hunger and health
 if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; global.scrollSpeed &gt; 0)
 {
     if(global.hunger &gt; 0)
     {
         if(global.biomeIdent == 4)
         {
+            global.gold++;
             global.hunger -=5;
         }
         else
@@ -65,23 +84,8 @@ if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; gl
     }
     else
     {
-    //health and hunger limiting
-    global.hunger = 0;
-    global.p_health -= 5;
+        global.p_health -= 5;
     }
-    if (global.hunger&gt;100)
-    {
-        global.hunger = 100;
-    }
-    if (global.p_health&gt;100)
-    {
-        global.p_health = 100
-    }
-    else if (global.p_health&lt;0)
-    {
-        global.p_health = 0;
-    }
-    //limiting ends here
 } 
 
 // death
