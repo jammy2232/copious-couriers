@@ -51,7 +51,11 @@ y = ob_mainLevel_control.grass_road_y + ob_mainLevel_control.hudSize;
           <argument>
             <kind>1</kind>
             <string>x-=global.scrollSpeed;
-if (x==-sprite_width) {instance_destroy()}
+if (x==-sprite_width)
+{
+    ob_mainLevel_control.encounteredNext = false;
+    instance_destroy();   
+}
 </string>
           </argument>
         </arguments>
@@ -78,6 +82,7 @@ if (x==-sprite_width) {instance_destroy()}
 {
     instance_create(0,0,obj_shop_main);
     generated = true;
+    depth = -350;
 }
 </string>
           </argument>

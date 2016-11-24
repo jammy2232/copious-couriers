@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>// Object Pop up text 
-TitleText = "A wizard suddenly appears from a bolt of lightning, HAHAHAHAHA, he laughs hysterically bow down to me mortal I have become far more powerful than you can imagine";
-ButtonOne = "Bow down to him hoping to slip away";
-ButtonTwo = "What are you talking about!? No way.";
+TitleText = "A wizard suddenly appears from a bolt of lightning#HAHAHAHAHA#He laughs hysterically bow down to me mortal.";
+ButtonOne = "Bow down to him#hoping to slip away";
+ButtonTwo = "What are you talking about!?# No way.";
 ButtonThree = "Walk on and ignore him";
-ButtonFour = "";
+ButtonFour = "Walk on#Give him the finger";
 outcome = "Outcome Text";
 
 // Put Object Logic in the Step Code!!
@@ -95,7 +95,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Well done my servant, all I need is a small donation to help me fund my new church  - gold";
+                outcome = "Well done my servant.# All I need is a small donation.# Help me fund my new church";
                 global.gold -= 3;
                 if (global.gold &lt; 0){
                     global.gold = 0;
@@ -108,7 +108,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "But, you're supposed to worship me... Aw... He walks away dishearted";
+                outcome = "But, you're supposed to worship me...# Aw... He walks away dishearted";
                 break;
             }
         case 3:
@@ -117,7 +117,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Don't just ignore me you cunt. He kicks you in the balls";
+                outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
                 global.p_health -= 10;
                 break;
             }
@@ -127,7 +127,8 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Outcome 4";
+                outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
+                global.p_health -= 10;
                 
                 break;
             }
@@ -237,7 +238,7 @@ if (generated = false)
         {
         draw_text_transformed(button[3].x,button[3].y,ButtonThree,1,1,0);
         draw_text_transformed(button[4].x,button[4].y,ButtonFour,1,1,0);
-        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-85.27,TitleText,1,1,0);
+        draw_text_transformed(obj_event_parent.x,obj_event_parent.y-75.27,TitleText,1,1,0);
         }
         else
         {

@@ -95,8 +95,8 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You manage to shove him out of the way with alot of effort. Luckily you find out he has a wallet - hunger + gold";
-                global.health -= 5;
+                outcome = "You manage to shove him out of the way# It takes a alot of effort.#Luckily you find out he has a wallet.";
+                global.p_health -= 5;
                 global.gold += 15;
                 break;
             }
@@ -106,7 +106,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "You wot m8?, You get a swift fist in your face";
+                outcome = "You wot m8?#You get a swift fist in your face";
                 global.p_health -= 15;
                 break;
             }
@@ -116,7 +116,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "With great force# You manage to run him over with the cart# Bit of a dick move";
+                outcome = "With great force# You manage to run him over.# Bit of a dick move";
                 break;
             }
         case 4:

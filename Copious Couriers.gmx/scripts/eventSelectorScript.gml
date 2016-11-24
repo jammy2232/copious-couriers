@@ -62,13 +62,13 @@ switch(global.biomeIdent){ //each case list will be a list of possible events in
             case(6):    instance_create(objX,objY,obj_farmer);  return 1;
             case(7):    instance_create(objX,objY,obj_doctor); return 1;
             case(8):    instance_create(objX,objY,obj_cave_cult); return 1;
-            case(9):    return 0;
-            case(10):   return 0;
+            case(9):    instance_create(objX,objY,obj_cave_cult); return 1;
+            case(10):   instance_create(objX,objY,obj_drunk); return 1;
             case(11):   return 0;
             case(12):   return 0;
             case(13):   return 0;
-            case(14):   return 0; // really Common Slots
-            case(15):   return 0;
+            case(14):   instance_create(objX,objY,obj_farmer);  return 1; // really Common Slots
+            case(15):   instance_create(objX,objY,ob_cave_mount);  return 1;
             case(16):   return 0;
         }
         
