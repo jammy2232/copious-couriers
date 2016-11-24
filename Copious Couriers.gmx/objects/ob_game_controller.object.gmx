@@ -66,6 +66,10 @@ else if (global.p_health&lt;0)
 {
     global.p_health = 0;
 }
+if (global.gold&lt;0)
+{
+    global.gold = 0;
+}
 
 // Dealing with hunger and health
 if(ob_mainLevel_control.step%ob_mainLevel_control.screenWidth == 0 &amp;&amp; global.scrollSpeed &gt; 0)
