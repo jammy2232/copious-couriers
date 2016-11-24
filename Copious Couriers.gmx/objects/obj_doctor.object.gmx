@@ -104,7 +104,7 @@ else
                 }
                 else
                 {
-                    outcome = "I'm sorry but my treatment#comes at a cost. After all, that's what#makesthis country so great";
+                    outcome = "I'm sorry but my treatment#comes at a cost. After all, that's what#makes this country so great";
                 }
                 
                 break;
