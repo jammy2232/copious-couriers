@@ -78,6 +78,7 @@ switch(global.biomeIdent){ //each case list will be a list of possible events in
             case(2): instance_create(objX,objY,ob_barrel); return 1;
             case(3): instance_create(objX,objY,obj_beggar);  return 1;
             case(4): instance_create(objX,objY,ob_highwayman); return 1;
+            case(5): instance_create(objX,objY,obj_doggo); return 1;
             default: return 0;
 
         }
