@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>button_text = "James McAdam";
+            <string>button_text = "Programmer: James McAdam";
 </string>
           </argument>
         </arguments>

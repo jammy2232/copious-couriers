@@ -132,7 +132,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "With great force# You manage to run him over.# Bit of a dick move";
+                outcome = "With great force# You manage to run him over.# Bit of a nasty move";
                 break;
             }
         case 4:

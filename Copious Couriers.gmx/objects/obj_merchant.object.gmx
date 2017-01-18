@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pool[1,0] = "Cunt";
-pool[2,0] = "Cunt";
+            <string>pool[1,0] = "test";
+pool[2,0] = "test";
 
 while (pool[1,0] == pool[2,0])
 {

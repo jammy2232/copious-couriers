@@ -30,7 +30,7 @@ TitleText = "A wizard suddenly appears from a bolt of lightning#HAHAHAHAHA#He la
 ButtonOne = "Bow down to him#hoping to slip away";
 ButtonTwo = "What are you talking about!?# No way.";
 ButtonThree = "Walk on and ignore him";
-ButtonFour = "Walk on#Give him the finger";
+ButtonFour = "Walk on";
 outcome = "Outcome Text";
 
 // Put Object Logic in the Step Code!!
@@ -117,7 +117,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
+                outcome = "Don't just ignore me.# He kicks you in the balls";
                 global.p_health -= 10;
                 if (global.p_health&lt;=0)
                     {
@@ -135,7 +135,7 @@ else
                 obj_event_parent.should_draw_options = false;
                 obj_event_parent.should_draw_outcome = true;
                 resolved = true;
-                outcome = "Don't just ignore me you cunt.# He kicks you in the balls";
+                outcome = "Don't just ignore me.# He kicks you in the balls";
                 global.p_health -= 10;
                 if (global.p_health&lt;=0)
                     {
